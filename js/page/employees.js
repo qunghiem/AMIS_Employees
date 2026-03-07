@@ -7,7 +7,7 @@ const STORAGE_KEY = "candidates_data";
 function saveDefaultDataToLocalStorage() {
   const storedData = localStorage.getItem(STORAGE_KEY);
 
-  // kiểm tra có data trong file data chưa, chỉ lưu khi Storage chưa có data
+  // kiểm tra có data trong file data chưa + chỉ lưu khi Storage chưa có data
   if (!storedData && typeof employees !== "undefined" && employees.length > 0) {
     // nếu có thì lưu vào Storage
     localStorage.setItem(STORAGE_KEY, JSON.stringify(employees)); // cần chuyển sang string để lưu trong storage

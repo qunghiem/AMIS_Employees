@@ -259,3 +259,36 @@
     background-color: #fff !important;
 }
 
+/* khi thu gọn sidebar  */
+.layout__sidebar.collapsed {
+  width: 60px;
+  min-width: 60px;
+}
+
+.layout__sidebar.collapsed .sidebar-text {
+  display: none;
+}
+
+.layout__sidebar.collapsed .sidebar__toggle .toggle-label {
+  display: none;
+}
+
+.layout__sidebar.collapsed .sidebar__container {
+  justify-content: center;
+}
+
+.layout__sidebar.collapsed .sidebar__container .sidebar__icon {
+  -webkit-mask-position: 0;
+}
+
+.layout__sidebar.collapsed .icon-toogle {
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+    -webkit-mask-position: -40px -696px;
+    -webkit-mask-repeat: no-repeat;
+}
+
+/* Transition mượt  */
+/* .layout__sidebar {
+  transition: width 0.3s ease, min-width 0.3s ease;
+} */
+/* kết thúc khi thu gọn sidebar  */
