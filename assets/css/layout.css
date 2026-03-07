@@ -1,0 +1,261 @@
+/* chứa CSS cho layout chung như: Header, Sidebar, footer, grid system  */
+
+/* CSS cho Header  */
+.header {
+  background-color: #fff;
+  display: flex;
+  padding: 8px 15px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.header__left {
+  display: flex;
+  width: 50%;
+  gap: 20px;
+  align-items: center;
+}
+
+.header__menu-icon {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTQgNUM0IDUuMjY1MjIgNC4xMDUzNiA1LjUxOTU3IDQuMjkyODkgNS43MDcxMUM0LjQ4MDQzIDUuODk0NjQgNC43MzQ3OCA2IDUgNkM1LjI2NTIyIDYgNS41MTk1NyA1Ljg5NDY0IDUuNzA3MTEgNS43MDcxMUM1Ljg5NDY0IDUuNTE5NTcgNiA1LjI2NTIyIDYgNUM2IDQuNzM0NzggNS44OTQ2NCA0LjQ4MDQzIDUuNzA3MTEgNC4yOTI4OUM1LjUxOTU3IDQuMTA1MzYgNS4yNjUyMiA0IDUgNEM0LjczNDc4IDQgNC40ODA0MyA0LjEwNTM2IDQuMjkyODkgNC4yOTI4OUM0LjEwNTM2IDQuNDgwNDMgNCA0LjczNDc4IDQgNVoiIHN0cm9rZT0iIzRCNTU2MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTExIDVDMTEgNS4yNjUyMiAxMS4xMDU0IDUuNTE5NTcgMTEuMjkyOSA1LjcwNzExQzExLjQ4MDQgNS44OTQ2NCAxMS43MzQ4IDYgMTIgNkMxMi4yNjUyIDYgMTIuNTE5NiA1Ljg5NDY0IDEyLjcwNzEgNS43MDcxMUMxMi44OTQ2IDUuNTE5NTcgMTMgNS4yNjUyMiAxMyA1QzEzIDQuNzM0NzggMTIuODk0NiA0LjQ4MDQzIDEyLjcwNzEgNC4yOTI4OUMxMi41MTk2IDQuMTA1MzYgMTIuMjY1MiA0IDEyIDRDMTEuNzM0OCA0IDExLjQ4MDQgNC4xMDUzNiAxMS4yOTI5IDQuMjkyODlDMTEuMTA1NCA0LjQ4MDQzIDExIDQuNzM0NzggMTEgNVoiIHN0cm9rZT0iIzRCNTU2MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTE4IDVDMTggNS4yNjUyMiAxOC4xMDU0IDUuNTE5NTcgMTguMjkyOSA1LjcwNzExQzE4LjQ4MDQgNS44OTQ2NCAxOC43MzQ4IDYgMTkgNkMxOS4yNjUyIDYgMTkuNTE5NiA1Ljg5NDY0IDE5LjcwNzEgNS43MDcxMUMxOS44OTQ2IDUuNTE5NTcgMjAgNS4yNjUyMiAyMCA1QzIwIDQuNzM0NzggMTkuODk0NiA0LjQ4MDQzIDE5LjcwNzEgNC4yOTI4OUMxOS41MTk2IDQuMTA1MzYgMTkuMjY1MiA0IDE5IDRDMTguNzM0OCA0IDE4LjQ4MDQgNC4xMDUzNiAxOC4yOTI5IDQuMjkyODlDMTguMTA1NCA0LjQ4MDQzIDE4IDQuNzM0NzggMTggNVoiIHN0cm9rZT0iIzRCNTU2MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTQgMTJDNCAxMi4yNjUyIDQuMTA1MzYgMTIuNTE5NiA0LjI5Mjg5IDEyLjcwNzFDNC40ODA0MyAxMi44OTQ2IDQuNzM0NzggMTMgNSAxM0M1LjI2NTIyIDEzIDUuNTE5NTcgMTIuODk0NiA1LjcwNzExIDEyLjcwNzFDNS44OTQ2NCAxMi41MTk2IDYgMTIuMjY1MiA2IDEyQzYgMTEuNzM0OCA1Ljg5NDY0IDExLjQ4MDQgNS43MDcxMSAxMS4yOTI5QzUuNTE5NTcgMTEuMTA1NCA1LjI2NTIyIDExIDUgMTFDNC43MzQ3OCAxMSA0LjQ4MDQzIDExLjEwNTQgNC4yOTI4OSAxMS4yOTI5QzQuMTA1MzYgMTEuNDgwNCA0IDExLjczNDggNCAxMloiIHN0cm9rZT0iIzRCNTU2MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTExIDEyQzExIDEyLjI2NTIgMTEuMTA1NCAxMi41MTk2IDExLjI5MjkgMTIuNzA3MUMxMS40ODA0IDEyLjg5NDYgMTEuNzM0OCAxMyAxMiAxM0MxMi4yNjUyIDEzIDEyLjUxOTYgMTIuODk0NiAxMi43MDcxIDEyLjcwNzFDMTIuODk0NiAxMi41MTk2IDEzIDEyLjI2NTIgMTMgMTJDMTMgMTEuNzM0OCAxMi44OTQ2IDExLjQ4MDQgMTIuNzA3MSAxMS4yOTI5QzEyLjUxOTYgMTEuMTA1NCAxMi4yNjUyIDExIDEyIDExQzExLjczNDggMTEgMTEuNDgwNCAxMS4xMDU0IDExLjI5MjkgMTEuMjkyOUMxMS4xMDU0IDExLjQ4MDQgMTEgMTEuNzM0OCAxMSAxMloiIHN0cm9rZT0iIzRCNTU2MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTE4IDEyQzE4IDEyLjI2NTIgMTguMTA1NCAxMi41MTk2IDE4LjI5MjkgMTIuNzA3MUMxOC40ODA0IDEyLjg5NDYgMTguNzM0OCAxMyAxOSAxM0MxOS4yNjUyIDEzIDE5LjUxOTYgMTIuODk0NiAxOS43MDcxIDEyLjcwNzFDMTkuODk0NiAxMi41MTk2IDIwIDEyLjI2NTIgMjAgMTJDMjAgMTEuNzM0OCAxOS44OTQ2IDExLjQ4MDQgMTkuNzA3MSAxMS4yOTI5QzE5LjUxOTYgMTEuMTA1NCAxOS4yNjUyIDExIDE5IDExQzE4LjczNDggMTEgMTguNDgwNCAxMS4xMDU0IDE4LjI5MjkgMTEuMjkyOUMxOC4xMDU0IDExLjQ4MDQgMTggMTEuNzM0OCAxOCAxMloiIHN0cm9rZT0iIzRCNTU2MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTQgMTlDNCAxOS4yNjUyIDQuMTA1MzYgMTkuNTE5NiA0LjI5Mjg5IDE5LjcwNzFDNC40ODA0MyAxOS44OTQ2IDQuNzM0NzggMjAgNSAyMEM1LjI2NTIyIDIwIDUuNTE5NTcgMTkuODk0NiA1LjcwNzExIDE5LjcwNzFDNS44OTQ2NCAxOS41MTk2IDYgMTkuMjY1MiA2IDE5QzYgMTguNzM0OCA1Ljg5NDY0IDE4LjQ4MDQgNS43MDcxMSAxOC4yOTI5QzUuNTE5NTcgMTguMTA1NCA1LjI2NTIyIDE4IDUgMThDNC43MzQ3OCAxOCA0LjQ4MDQzIDE4LjEwNTQgNC4yOTI4OSAxOC4yOTI5QzQuMTA1MzYgMTguNDgwNCA0IDE4LjczNDggNCAxOVoiIHN0cm9rZT0iIzRCNTU2MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTExIDE5QzExIDE5LjI2NTIgMTEuMTA1NCAxOS41MTk2IDExLjI5MjkgMTkuNzA3MUMxMS40ODA0IDE5Ljg5NDYgMTEuNzM0OCAyMCAxMiAyMEMxMi4yNjUyIDIwIDEyLjUxOTYgMTkuODk0NiAxMi43MDcxIDE5LjcwNzFDMTIuODk0NiAxOS41MTk2IDEzIDE5LjI2NTIgMTMgMTlDMTMgMTguNzM0OCAxMi44OTQ2IDE4LjQ4MDQgMTIuNzA3MSAxOC4yOTI5QzEyLjUxOTYgMTguMTA1NCAxMi4yNjUyIDE4IDEyIDE4QzExLjczNDggMTggMTEuNDgwNCAxOC4xMDU0IDExLjI5MjkgMTguMjkyOUMxMS4xMDU0IDE4LjQ4MDQgMTEgMTguNzM0OCAxMSAxOVoiIHN0cm9rZT0iIzRCNTU2MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPHBhdGggZD0iTTE4IDE5QzE4IDE5LjI2NTIgMTguMTA1NCAxOS41MTk2IDE4LjI5MjkgMTkuNzA3MUMxOC40ODA0IDE5Ljg5NDYgMTguNzM0OCAyMCAxOSAyMEMxOS4yNjUyIDIwIDE5LjUxOTYgMTkuODk0NiAxOS43MDcxIDE5LjcwNzFDMTkuODk0NiAxOS41MTk2IDIwIDE5LjI2NTIgMjAgMTlDMjAgMTguNzM0OCAxOS44OTQ2IDE4LjQ4MDQgMTkuNzA3MSAxOC4yOTI5QzE5LjUxOTYgMTguMTA1NCAxOS4yNjUyIDE4IDE5IDE4QzE4LjczNDggMTggMTguNDgwNCAxOC4xMDU0IDE4LjI5MjkgMTguMjkyOUMxOC4xMDU0IDE4LjQ4MDQgMTggMTguNzM0OCAxOCAxOVoiIHN0cm9rZT0iIzRCNTU2MyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==);
+  width: 24px;
+  height: 24px;
+}
+
+.header__logo {
+  background-image: url(https://amisplatform.misacdn.net/apps/recruit2/logo-recruitment-new.d56a0096f9a2229b.svg);
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+}
+
+.header__right {
+  display: flex;
+  width: 50%;
+  gap: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.recruitment-page {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.recruitment-page:hover .recruitment-page__icon {
+  background-color: #007bff;
+}
+.recruitment-page:hover .recruitment-page__text {
+  color: #007bff;
+}
+
+.recruitment-page__icon {
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: 0px -608px;
+  -webkit-mask-repeat: no-repeat;
+  width: 20px;
+  height: 21px;
+  background-color: #7a8188;
+}
+
+.header__right .header__notification {
+  background: url(https://amisplatform.misacdn.net/apps/recruit2/icon-notification-version.d5e3dc604036ed5b.svg);
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.header__store {
+  height: 20px;
+  aspect-ratio: 1 / 1;
+  background: url(https://cdnstore.misacdn.net/lib/static/cs-icon-store.svg)
+    no-repeat center;
+  background-size: 20px 20px;
+  cursor: pointer;
+}
+
+.header__user {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTEuNSIgY3k9IjUuNSIgcj0iMy41IiBzdHJva2U9IiM3NTc1NzUiIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNMy41MDYyOSAxNS43NDEzTDMuMTA2NTIgMTYuMjk2NUMxLjM5MTk2IDE4LjY3NzggMy4wOTM2OCAyMiA2LjAyODA0IDIySDE1Ljk3MkMxOC45MDYzIDIyIDIwLjYwOCAxOC42Nzc4IDE4Ljg5MzUgMTYuMjk2NUwxOC40OTM3IDE1Ljc0MTNDMTYuODAyNCAxMy4zOTIyIDE0LjA4NDUgMTIgMTEuMTg5OSAxMkgxMC44MTAxQzcuOTE1NTMgMTIgNS4xOTc2MSAxMy4zOTIyIDMuNTA2MjkgMTUuNzQxM1oiIHN0cm9rZT0iIzc1NzU3NSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTIxIDVWN1Y5IiBzdHJva2U9IiMyQ0EwMUMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0xOSA3SDIxSDIzIiBzdHJva2U9IiMyQ0EwMUMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+Cjwvc3ZnPgo=);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.header__help {
+  cursor: pointer;
+
+  width: 24px;
+  height: 24px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+DQogIDxkZWZzPg0KICAgIDxjbGlwUGF0aCBpZD0iY2xpcC1wYXRoIj4NCiAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGVfMjgxNTkiIGRhdGEtbmFtZT0iUmVjdGFuZ2xlIDI4MTU5IiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQ0IDc5KSIgZmlsbD0iI2ZmZiIvPg0KICAgIDwvY2xpcFBhdGg+DQogIDwvZGVmcz4NCiAgPGcgaWQ9Ikdyb3VwXzgyNzg0IiBkYXRhLW5hbWU9Ikdyb3VwIDgyNzg0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDY5OSAtMTcwKSI+DQogICAgPGcgaWQ9Ikdyb3VwXzgyNzc4IiBkYXRhLW5hbWU9Ikdyb3VwIDgyNzc4IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0NjU1IDkxKSIgY2xpcC1wYXRoPSJ1cmwoI2NsaXAtcGF0aCkiPg0KICAgICAgPHBhdGggaWQ9IlBhdGhfODkwNjQiIGRhdGEtbmFtZT0iUGF0aCA4OTA2NCIgZD0iTTUzLjQsODguMzE1YTIuNjg1LDIuNjg1LDAsMCwxLDUuMjE4LjlDNTguNjEzLDkxLDU2LDkxLjksNTYsOTEuOXYuOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNmU3MzdhIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMS44Ii8+DQogICAgICA8cGF0aCBpZD0iUGF0aF84OTA2NSIgZGF0YS1uYW1lPSJQYXRoIDg5MDY1IiBkPSJNNTYsMTAwYTksOSwwLDEsMC05LTlBOSw5LDAsMCwwLDU2LDEwMFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzZlNzM3YSIgc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIiBzdHJva2Utd2lkdGg9IjIiLz4NCiAgICAgIDxwYXRoIGlkPSJQYXRoXzg5MDY2IiBkYXRhLW5hbWU9IlBhdGggODkwNjYiIGQ9Ik01Niw5N2ExLDEsMCwxLDAtMS0xQTEsMSwwLDAsMCw1Niw5N1oiIGZpbGw9IiM2ZTczN2EiLz4NCiAgICA8L2c+DQogIDwvZz4NCjwvc3ZnPg0K);
+}
+
+.header__avatar img {
+  width: 100%;
+  height: 100%;
+  max-width: 32px;
+  max-height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.header__title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.header__search {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header__search input {
+  background-color: #f7f4f4;
+  padding: 9px;
+  padding-left: 35px;
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  max-width: 350px;
+}
+
+.header__search::before {
+  content: "\f002";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a19f9f
+}
+
+.header__search input:focus {
+  outline: none;
+}
+
+/* Kết thúc CSS cho Header  */
+
+/* CSS cho sidebar  */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  /* margin-top: 52px; */
+}
+
+.layout__sidebar {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)),
+    url(https://amisplatform.misacdn.net/apps/recruit2/event-sidebar.b836f9e63b28d1c0.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 240px;
+  min-width: 240px;
+  color: white;
+  padding: 35px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  padding-top: 90px;
+}
+
+.sidebar__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .layout__content {
+  flex: 1;
+  background: #f5f6fa;
+  min-width: 0;
+} */
+
+.sidebar__container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 85%;
+  padding: 9px 0;
+  border-radius: 5px;
+}
+.sidebar--acitve {
+  background-color: #2680eb;
+}
+
+.sidebar__item:hover .sidebar__container {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.sidebar__item:hover .sidebar--acitve {
+  background-color: #2680eb;
+}
+.sidebar__icon {
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/icons/ai-agent-sb.svg);
+  -webkit-mask-position: 3px 2px;
+  -webkit-mask-repeat: no-repeat;
+  background-color: #fff;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  color: #fff;
+}
+
+.sidebar-text {
+  color: #fff;
+  font-size: 14.5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.sidebar-text span {
+  background-color: #F04438;
+  padding: 5px 12px;
+  border-radius: 50px;
+  position: absolute;
+  right: 10px;
+}
+
+.sidebar__toggle {
+    position: absolute;
+    bottom: 0px;
+    padding: 12px;
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background: none;
+    color: #fff;
+    border-radius: 5px;
+    /* text-align: left; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar__toggle .icon-toogle {
+    -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+    -webkit-mask-position: -60px -696px;
+    -webkit-mask-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    display: inline-block;
+    background-color: #fff !important;
+}
+

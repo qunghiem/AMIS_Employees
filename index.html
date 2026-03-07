@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMIS - Ứng viên</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- link font  -->
+    <link rel="stylesheet" type="text/css" href="https://testcdnamisapp.misacdn.net/fonts/font.inter.css">
+</head>
+
+<body>
+    <!-- thanh header  -->
+    <header class="header">
+        <div class="header__left">
+            <div class="header__menu-icon">
+
+            </div>
+            <div class="header__logo">
+
+            </div>
+            <div class="header__title">
+                <b>Tuyển dụng</b>
+            </div>
+            <div class="header__search">
+                <input type="text" placeholder="Tìm kiếm tin tuyển dụng, ứng viên, nhân tài...">
+            </div>
+        </div>
+        <div class="header__right">
+            <div class="recruitment-page">
+                <div class="recruitment-page__icon">
+
+                </div>
+                <div class="recruitment-page__text">
+                    Website tuyển dụng
+                </div>
+            </div>
+            <div class="header__notification">
+
+            </div>
+            <div class="header__store">
+
+            </div>
+            <div class="header__user">
+
+            </div>
+            <div class="header__help">
+
+            </div>
+            <div class="header__store">
+
+            </div>
+            <div class="header__user">
+
+            </div>
+            <div class="header__help">
+
+            </div>
+            <div class="header__store">
+
+            </div>
+            <div class="header__user">
+
+            </div>
+
+            <div class="header__avatar">
+                <img src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+                    alt="">
+            </div>
+        </div>
+    </header>
+
+    <!-- layout chính  -->
+    <section class="layout">
+        <!-- Thanh Side bar bên trái -->
+        <aside class="layout__sidebar">
+            <div class="sidebar__item">
+                <div class="sidebar__container">
+                    <div class="sidebar__icon">
+
+                    </div>
+                    <div class="sidebar-text">
+                        Al Agent
+                        <span>New</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar__item">
+                <div class="sidebar__container">
+                    <div class="sidebar__icon">
+
+                    </div>
+                    <a href="news.html" class="sidebar-text">
+                        Tin tuyển dụng
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar__item">
+                <div class="sidebar__container sidebar--acitve">
+                    <div class="sidebar__icon">
+
+                    </div>
+                    <div class="sidebar-text">
+                        Ứng viên
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar__item">
+                <div class="sidebar__container">
+                    <div class="sidebar__icon">
+
+                    </div>
+                    <div class="sidebar-text">
+                        Lịch
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar__item">
+                <div class="sidebar__container">
+                    <div class="sidebar__icon">
+
+                    </div>
+                    <div class="sidebar-text">
+                        Thiết lập
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar__item">
+                <div class="sidebar__container">
+                    <div class="sidebar__icon">
+
+                    </div>
+                    <div class="sidebar-text">
+                        Kiến thức hữu ích
+                    </div>
+                </div>
+            </div>
+
+            <button class="sidebar__toggle">
+                <span class="icon-toogle"></span>Thu gọn</button>
+        </aside>
+
+        <!-- Bảng Nội dung bên phải  -->
+        <main class="layout__content">
+            <div class="title__header">
+                <div class="title__left">Ứng viên</div>
+                <div class="title__right">
+                    <button class="delete item-button">
+                        <div class="icon-delete">
+
+                        </div>
+                        <!-- <img src="https://amisplatform.misacdn.net/apps/recruit2/assets/icons/icon-delete-candidate.svg"
+                            alt=""> -->
+                        Xóa dữ liệu ứng viên không trúng tuyển
+                    </button>
+                    <button class="add item-button">
+                        <div class="icon-add">
+
+                        </div>
+                        Thêm ứng viên
+                    </button>
+                </div>
+            </div>
+            <div class="content">
+                <div class="content__nav">
+                    <div class="content__search">
+
+                        <input type="text" placeholder="Tim kiếm hoặc nhờ AI trợ giúp">
+                    </div>
+                    <div class="content__feature">
+                        <div class="filter">
+                            <div class="icon"></div>
+                        </div>
+                        <div class="filter">
+                            <div class="icon"></div>
+                        </div>
+                        <div class="filter">
+                            <div class="icon"></div>
+                        </div>
+                        <div class="filter">
+                            <div class="icon"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="content_body">
+                    <div class="table-wrapper">
+                        <table class="candidate-table">
+                            <thead>
+                                <tr>
+                                    <th class="checkbox">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th>Họ và tên</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Nguồn ứng viên</th>
+                                    <th>Email</th>
+                                    <th>Chiến dịch tuyển dụng </th>
+                                    <th>Vị trí tuyển dụng</th>
+                                    <th>Tin tuyển dụng</th>
+                                    <th>Vòng tuyển dụng</th>
+                                    <th>Đánh giá</th>
+                                    <th>Quốc gia</th>
+                                    <th>Tỉnh/ Thành phố</th>
+                                    <th>Phường/ Xã</th>
+                    </div>
+                    </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="checkbox"><input type="checkbox"></td>
+
+                            <td class="avatar-cell"><img class="avatar"
+                                    src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+                                    alt="">Lê Thị Thu Thảo</td>
+                            <td>0974 48 66 08</td>
+                            <td>--</td>
+                            <td title="abc@gmail.com">abc@gmail.com</td>
+                            <td>--</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>Abc</td>
+                            <td>Đã tuyển</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox"><input type="checkbox"></td>
+
+                            <td class="avatar-cell"><img class="avatar"
+                                    src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+                                    alt="">Lê Thị Thu Thảo</td>
+                            <td>0974 48 66 08</td>
+                            <td>--</td>
+                            <td title="abc@gmail.com">abc@gmail.com</td>
+                            <td>--</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>Abc</td>
+                            <td>Đã tuyển</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox"><input type="checkbox"></td>
+
+                            <td class="avatar-cell"><img class="avatar"
+                                    src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+                                    alt="">Lê Thị Thu Thảo</td>
+                            <td>0974 48 66 08</td>
+                            <td>--</td>
+                            <td title="abc@gmail.com">abc@gmail.com</td>
+                            <td>--</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>Abc</td>
+                            <td>Đã tuyển</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox"><input type="checkbox"></td>
+
+                            <td class="avatar-cell"><img class="avatar"
+                                    src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+                                    alt="">Lê Thị Thu Thảo</td>
+                            <td>0974 48 66 08</td>
+                            <td>--</td>
+                            <td title="abc@gmail.com">abc@gmail.com</td>
+                            <td>--</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>Abc</td>
+                            <td>Đã tuyển</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox"><input type="checkbox"></td>
+
+                            <td class="avatar-cell"><img class="avatar"
+                                    src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+                                    alt="">Lê Thị Thu Thảo</td>
+                            <td>0974 48 66 08</td>
+                            <td>--</td>
+                            <td title="abc@gmail.com">abc@gmail.com</td>
+                            <td>--</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>Abc</td>
+                            <td>Đã tuyển</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox"><input type="checkbox"></td>
+
+                            <td class="avatar-cell"><img class="avatar"
+                                    src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+                                    alt="">Lê Thị Thu Thảo</td>
+                            <td>0974 48 66 08</td>
+                            <td>--</td>
+                            <td title="abc@gmail.com">abc@gmail.com</td>
+                            <td>--</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>Abc</td>
+                            <td>Đã tuyển</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox"><input type="checkbox"></td>
+
+                            <td class="avatar-cell"><img class="avatar"
+                                    src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+                                    alt="">Lê Thị Thu Thảo</td>
+                            <td>0974 48 66 08</td>
+                            <td>--</td>
+                            <td title="abc@gmail.com">abc@gmail.com</td>
+                            <td>--</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>Abc</td>
+                            <td>Đã tuyển</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox"><input type="checkbox"></td>
+
+                            <td class="avatar-cell"><img class="avatar"
+                                    src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+                                    alt="">Lê Thị Thu Thảo</td>
+                            <td>0974 48 66 08</td>
+                            <td>--</td>
+                            <td title="abc@gmail.com">abc@gmail.com</td>
+                            <td>--</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>Abc</td>
+                            <td>Đã tuyển</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox"><input type="checkbox"></td>
+
+                            <td class="avatar-cell"><img class="avatar"
+                                    src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+                                    alt="">Lê Thị Thu Thảo</td>
+                            <td>0974 48 66 08</td>
+                            <td>--</td>
+                            <td title="abc@gmail.com">abc@gmail.com</td>
+                            <td>--</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>Abc</td>
+                            <td>Đã tuyển</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>Abc</td>
+                            <td>5</td>
+                        </tr>
+
+
+                    </tbody>
+                    </table>
+                </div>
+                <div class="foot-table">
+                    <div class="total-record">
+                        Tổng: 5202 bản ghi
+                    </div>
+                    <div class="total-page">
+                        Số bản ghi/trang
+                        <select name="" id="">
+                            <option value="">15</option>
+                            <option value="">25</option>
+                            <option value="">50</option>
+                            <option value="">100</option>
+                        </select>
+                        <div class="desc">
+                            1 - 25 bản ghi
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </main>
+    </section>
+
+
+    <!-- Form  -->
+     <div class="form">
+        <!-- Vẽ nền  -->
+        <div class="form__bg">
+
+        </div>
+        <div class="form__container">
+            <!-- Header popup  -->
+            <div class="form__header">
+                <div class="form__header__title">
+                    Thêm ứng viên
+                </div>
+                <div class="mi__icon">
+                    
+                </div>
+            </div>
+
+
+            <!-- Content popup  -->
+            <div class="form__content">
+
+            </div>
+
+            <!-- Footer popup  -->
+            <div class="form__footer">
+
+            </div>
+        </div>
+     </div>
+
+     <script src="./js/page/employees.js"></script>
+     <script src="./js//main.js"></script>
+</body>
+
+</html>
