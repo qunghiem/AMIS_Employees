@@ -7,7 +7,7 @@ const STORAGE_KEY = "candidates_data";
 function saveDefaultDataToLocalStorage() {
   const storedData = localStorage.getItem(STORAGE_KEY);
 
-  // kiểm tra có data trong file data chưa, chỉ lưu khi Storage chưa có data
+  // kiểm tra có data trong file data chưa + chỉ lưu khi Storage chưa có data
   if (!storedData && typeof employees !== "undefined" && employees.length > 0) {
     // nếu có thì lưu vào Storage
     localStorage.setItem(STORAGE_KEY, JSON.stringify(employees)); // cần chuyển sang string để lưu trong storage
@@ -21,11 +21,8 @@ function getCandidatesFromStorage() {
   return storedData ? JSON.parse(storedData) : [];
 }
 
-// hàm get data, hiển thị danh sách ứng viên
-function displayCandidates() {
-  // lấy dữ liệu từ STORAGE
-  const candidates = getCandidatesFromStorage();
-
+// hàm render danh sách ứng viên theo mảng truyền vào
+function renderCandidates(candidates) {
   // kiểm tra xem có data không
   if (!candidates || !candidates.length) return;
 
@@ -63,6 +60,41 @@ function displayCandidates() {
   });
 }
 
+// hàm hiển thị danh sách ứng viên
+function displayCandidates() {
+  // lấy dữ liệu từ STORAGE
+  const candidates = getCandidatesFromStorage();
+  renderCandidates(candidates);
+}
+
+// hàm tìm kiếm ứng viên theo tên, sđt, email => output: list ứng viên
+function searchCandidates(keyword) {
+  // lấy toàn bộ data - search trên data đó
+  const allCandidates = getCandidatesFromStorage();
+
+  // chuẩn hóa keyword
+  const trimed = keyword.trim().toLowerCase();
+
+  if (!trimed) {
+    renderCandidates(allCandidates);
+    return;
+  }
+
+  const filteredCandidates = allCandidates.filter((emp) => { // hàm này trả về list ứng viên thoả mãn
+    // kiểm tra nếu có name, email, sđt trùng với keyword thì emp đó ok 
+
+    // kiểm tra name có trùng k 
+    const name = emp.fullName && emp.fullName.toLowerCase().includes(trimed); // hàm trả về true nếu trùng tên
+    const phone = emp.phone && emp.phone.toLowerCase().includes(trimed); // hàm trả về true nếu trùng sđt
+    const email = emp.email && emp.email.toLowerCase().includes(trimed); // hàm trả về true nếu trùng email
+
+    return name || phone || email; // chỉ cần trùng 1 trong 3
+
+  });
+
+  renderCandidates(filteredCandidates)
+}
+
 // chỉ chạy hàm xử lí sự kiện khi loaded xong UI
 document.addEventListener("DOMContentLoaded", () => {
   // lưu dữ liệu mặc định vào Storage
@@ -70,4 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // hiển thị dữ liệu từ Storage
   displayCandidates();
+
+  // bắt sự kiện khi click input-search
+  const searchInput = document.getElementById("input-search");
+  searchInput.addEventListener("input", function () {
+    searchCandidates(this.value);
+  });
 });

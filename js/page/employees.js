@@ -21,11 +21,8 @@ function getCandidatesFromStorage() {
   return storedData ? JSON.parse(storedData) : [];
 }
 
-// hàm get data, hiển thị danh sách ứng viên
-function displayCandidates() {
-  // lấy dữ liệu từ STORAGE
-  const candidates = getCandidatesFromStorage();
-
+// hàm render danh sách ứng viên theo mảng truyền vào
+function renderCandidates(candidates) {
   // kiểm tra xem có data không
   if (!candidates || !candidates.length) return;
 
@@ -63,6 +60,39 @@ function displayCandidates() {
   });
 }
 
+// hàm hiển thị danh sách ứng viên
+function displayCandidates() {
+  // lấy dữ liệu từ STORAGE
+  const candidates = getCandidatesFromStorage();
+  renderCandidates(candidates);
+}
+
+// hàm tìm kiếm ứng viên theo tên, sđt, email => output: list ứng viên
+function searchCandidates(keyword) {
+
+  const allCandidates = getCandidatesFromStorage();
+  // chuẩn hóa keyword
+  const trimed = keyword.trim().toLowerCase();
+
+  if(!trimed) {
+    renderCandidates(allCandidates);
+    return;
+  }
+ 
+  // khi đã có keyword
+  const filteredCandidates = allCandidates.filter((emp) => { 
+
+    // kiểm tra nếu có name, email, sđt trùng với keyword thì emp đó trả về true
+    if(emp.fullName && emp.fullName.toLowerCase().includes(trimed)) return true;
+    if(emp.phoneNumber && emp.phoneNumber.toLowerCase().includes(trimed)) return true;
+    if(emp.email && emp.email.toLowerCase().includes(trimed)) return true;
+
+    return false;
+  })
+
+  renderCandidates(filteredCandidates)
+}
+
 // chỉ chạy hàm xử lí sự kiện khi loaded xong UI
 document.addEventListener("DOMContentLoaded", () => {
   // lưu dữ liệu mặc định vào Storage
@@ -70,4 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // hiển thị dữ liệu từ Storage
   displayCandidates();
+
+  const inputSearch = document.getElementById("input-search");
+  inputSearch.addEventListener("input", (e) => {
+    searchCandidates(e.target.value)
+  })
 });
+
+
