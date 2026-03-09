@@ -11,4 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
       sidebar.classList.toggle("collapsed");
     });
   }
+
+  initEventData();
 });

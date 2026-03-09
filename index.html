@@ -159,7 +159,7 @@
                             alt=""> -->
                         Xóa dữ liệu ứng viên không trúng tuyển
                     </button>
-                    <button class="add item-button">
+                    <button class="add item-button add-candidates">
                         <div class="icon-add">
 
                         </div>
@@ -237,20 +237,24 @@
                 </div>
                 <div class="foot-table">
                     <div class="total-record">
-                        Tổng: 5202 bản ghi
                     </div>
                     <div class="total-page">
                         Số bản ghi/trang
-                        <select name="" id="">
-                            <option value="">15</option>
-                            <option value="">25</option>
-                            <option value="">50</option>
-                            <option value="">100</option>
+                        <select name="" id="select_page_size">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
                         </select>
-                        <div class="desc">
-                            1 - 25 bản ghi
-                        </div>
-                    </div>
+                        <div class="desc index-record">
+                        </div>           
+                        <div class="prev-next">
+                            <button class="prev"></button>
+                            <button class="next"></button>
+                        </div>                                          
+                    </div>                                                                                                  
                 </div>
             </div>
             </div>
@@ -258,35 +262,220 @@
     </section>
 
 
-    <!-- Form  -->
-     <div class="form">
-        <!-- Vẽ nền  -->
+    <!-- Form Model Thêm ứng viên  -->
+     <div class="form" id="form__add">
         <div class="form__bg">
-
         </div>
         <div class="form__container">
-            <!-- Header popup  -->
             <div class="form__header">
                 <div class="form__header__title">
                     Thêm ứng viên
                 </div>
                 <div class="mi__icon">
-                    
+                    <div class="mi__icon__close"></div>
                 </div>
             </div>
-
-
-            <!-- Content popup  -->
             <div class="form__content">
+                <div class="form__content__file">
+                    <div class="form__content__text">
+                        <div class="form__content__file__title">
+                            Kéo thả hoặc bấm vào đây để tải cv lên
+                        </div>
+                        <div class="form__content__file__note"> Chấp nhận file .doc, .docx, .pdf, .jpg, .jpeg, .png
+                            <span> (Dung lượng < hơn 15 Mb) </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="form__content__infor">
+                    <div class="form__content_avatar">
+                        <div class="form__content_img">Ảnh</div>
+                    </div>
+
+                    <div class="form__infor__user">
+                        <div class="ms__row">
+                            <div class="ms__label">Họ và tên <span class="ms__require">*</span></div>
+                            <div class="ms__input">
+                                <input type="text" name="" id="" placeholder="Nhập họ và tên">
+                            </div>
+                        </div>
+                        <div class="ms__row ms__flex">
+                            <div>
+                                <div class="ms__label">Ngày Sinh <span class="ms__require">*</span></div>
+                                <div class="ms__input">
+                                    <input type="date" name="" id="">
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="ms__label">Giới tính <span class="ms__require">*</span></div>
+                                <div class="ms__input">
+                                    <select name="" id="">
+                                        <option value="">Chọn giới tính</option>
+                                        <option value="male">Nam</option>
+                                        <option value="female">Nữ</option>
+                                        <option value="other">Khác</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ms__row">
+                            <div class="ms__label">Khu vực <span class="ms__require">*</span></div>
+                            <div class="ms__input">
+                                <input type="text" name="" id="">
+
+                            </div>
+                        </div>
+
+                        <div class="ms__row ms__flex">
+                            <div>
+                                <div class="ms__label">Số điện thoại </div>
+                                <div class="ms__input">
+                                    <input type="text" name="" id="" placeholder="Nhập số điện thoại">
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="ms__label">Email </div>
+                                <div class="ms__input">
+                                    <input type="email" name="" id="" placeholder="Nhập email">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ms__row">
+                            <div class="ms__label">Quốc gia<span class="ms__require">*</span></div>
+                            <div class="ms__input">
+                                <input type="text" name="" id="" placeholder="Nhập quốc gia">
+
+                            </div>
+                        </div>
+
+                        <div class="ms__row">
+                            <div class="ms__label">Tỉnh/Thành phố<span class="ms__require">*</span></div>
+                            <div class="ms__input">
+                                <select name="" id="">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="ms__row">
+                            <div class="ms__label">Phường/Xã<span class="ms__require">*</span></div>
+                            <div class="ms__input">
+                                <select name="" id="">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="ms__row">
+                            <div class="ms__label">Địa chỉ<span class="ms__require">*</span></div>
+                            <div class="ms__input">
+                                <input type="text" name="" id="" placeholder="Nhập địa chỉ">
+
+                            </div>
+                        </div>
+
+                        <div class="form__section">
+                            <div class="form__section__title">HỌC VẤN</div>
+
+                            <div class="ms__row ms__flex">
+                                <div>
+                                    <div class="ms__label">Trình độ đào tạo</div>
+                                    
+                                </div>
+                                <div>
+                                    <div class="ms__input">
+                                        <input type="text" placeholder="Nhập trình độ đào tạo">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ms__row ms__flex">
+                                
+                                <div>
+                                    <div class="ms__label">Nơi đào tạo</div>
+                                    
+                                </div>
+                                <div>
+                                    <div class="ms__input">
+                                        <input type="text" placeholder="Nhập nơi đào tạo">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ms__row ms__flex">
+                                <div>
+                                    <div class="ms__label">Chuyên ngành</div>
+                                </div>
+                                <div>
+                                   <div class="ms__input">
+                                    <input type="text" placeholder="Nhập chuyên ngành">
+                                </div>
+                                </div>
+                            </div>
+                            <div class="form__add">
+                                + Thêm học vấn
+                            </div>
+                        </div>
+                        <div class="ms__row ms__flex">
+                            <div>
+                                <div class="ms__label">Ngày ứng tuyển <span class="ms__require">*</span></div>
+                                <div class="ms__input">
+                                    <input type="date" value="2026-03-05">
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="ms__label">Nguồn ứng viên</div>
+                                <div class="ms__input">
+                                    <select>
+                                        <option>Chọn nguồn ứng viên</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ms__row ms__flex">
+                            <div>
+                                <div class="ms__label">Nhân sự khai thác</div>
+                                <div class="ms__input">
+                                    <select>
+                                        <option>Đinh Nga QTHT</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="ms__label">Cộng tác viên</div>
+                                <div class="ms__input">
+                                    <select>
+                                        <option>Chọn cộng tác viên</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ms__row">
+                            <div class="ms__label">Nơi làm việc gần đây</div>
+                            <div class="ms__input">
+                                <input type="text" placeholder="Nhập nơi làm việc gần đây">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
 
             </div>
 
-            <!-- Footer popup  -->
             <div class="form__footer">
-
+                <button class="form__footer__btn--cancel">Huỷ</button>
+                <button class="form__footer__btn--save">Lưu</button>
             </div>
         </div>
-     </div>
+    </div>
 
      <!-- import data trước  -->
      <script src="./commons/datas/candidate-data.js"></script>

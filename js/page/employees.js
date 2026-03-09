@@ -1,7 +1,29 @@
 // file này xử lí login cho danh mục Ứng viên
 
+// import file xử lí show/ hidden Model thêm ứng viên
+// import { initAddCandidateModal } from "./modelAddCandidates";
+
 // tạo key để lưu trong localStorage
 const STORAGE_KEY = "candidates_data";
+
+//xử lí show/ hidden Model thêm ứng viên
+// show/ hidden Model thêm ứng viên
+const addCandidates = document.querySelector(".add-candidates");
+const form = document.getElementById("form__add");
+
+const cancleFormAdd = document.querySelector(".form__footer__btn--cancel");
+
+addCandidates.addEventListener("click", () => {
+  form.classList.toggle("display-block");
+});
+cancleFormAdd.addEventListener("click", () => {
+  form.classList.toggle("display-block");
+});
+
+// phân trang
+let _currentPage = 1;
+let _pageSize = 15;
+let _currentCandidates = [];
 
 // hàm lưu dữ liệu default trong localStorage
 function saveDefaultDataToLocalStorage() {
@@ -60,41 +82,78 @@ function renderCandidates(candidates) {
   });
 }
 
+// hàm hiển render theo page - theo _currentCandidates
+function renderPage() {
+  const start = (_currentPage - 1) * _pageSize;
+  const end = start + _pageSize;
+
+  const pageData = _currentCandidates.slice(start, end);
+  renderCandidates(pageData);
+
+  pageInfor();
+}
+
 // hàm hiển thị danh sách ứng viên
 function displayCandidates() {
   // lấy dữ liệu từ STORAGE
   const candidates = getCandidatesFromStorage();
-  renderCandidates(candidates);
+  _currentCandidates = candidates;
+  renderPage();
 }
 
 // hàm tìm kiếm ứng viên theo tên, sđt, email => output: list ứng viên
 function searchCandidates(keyword) {
-
   const allCandidates = getCandidatesFromStorage();
   // chuẩn hóa keyword
   const trimed = keyword.trim().toLowerCase();
 
-  if(!trimed) {
+  if (!trimed) {
     renderCandidates(allCandidates);
     return;
   }
- 
-  // khi đã có keyword
-  const filteredCandidates = allCandidates.filter((emp) => { 
 
+  // khi đã có keyword
+  const filteredCandidates = allCandidates.filter((emp) => {
     // kiểm tra nếu có name, email, sđt trùng với keyword thì emp đó trả về true
-    if(emp.fullName && emp.fullName.toLowerCase().includes(trimed)) return true;
-    if(emp.phoneNumber && emp.phoneNumber.toLowerCase().includes(trimed)) return true;
-    if(emp.email && emp.email.toLowerCase().includes(trimed)) return true;
+    if (emp.fullName && emp.fullName.toLowerCase().includes(trimed))
+      return true;
+    if (emp.phoneNumber && emp.phoneNumber.toLowerCase().includes(trimed))
+      return true;
+    if (emp.email && emp.email.toLowerCase().includes(trimed)) return true;
 
     return false;
-  })
+  });
 
-  renderCandidates(filteredCandidates)
+  // khi search xong cần reset lại _currentPage = 1
+  _currentPage = 1;
+  _currentCandidates = filteredCandidates;
+
+  renderPage();
+}
+
+// hàm hiển thị thông tin page - footer
+function pageInfor() {
+  // lấy tổng số bản ghi
+  const total = _currentCandidates.length;
+  document.querySelector(".total-record").textContent =
+    `Tổng bản ghi: ${total}`;
+
+  // lấy index bản ghi
+  let start = (_currentPage - 1) * _pageSize + 1;
+
+  let end = start + _pageSize - 1;
+  if(total < end) end = total;
+
+  let indexRecord = document.querySelector(".index-record");
+  indexRecord.textContent = `
+    ${start} - ${end} bản ghi
+  `;
 }
 
 // chỉ chạy hàm xử lí sự kiện khi loaded xong UI
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {});
+
+function initEventData() {
   // lưu dữ liệu mặc định vào Storage
   saveDefaultDataToLocalStorage();
 
@@ -103,8 +162,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const inputSearch = document.getElementById("input-search");
   inputSearch.addEventListener("input", (e) => {
-    searchCandidates(e.target.value)
-  })
-});
+    searchCandidates(e.target.value);
+  });
+
+  let pageSize = document.getElementById("select_page_size");
+  pageSize.addEventListener("change", () => {
+    _pageSize = Number(pageSize.value);
+    renderPage();
+  });
+
+}
 
 
+  // hàm xử lí tiến, lùi trang
+  let prev = document.querySelector(".prev");
+  let next = document.querySelector(".next");
+
+  // tiến trang
+  next.addEventListener("click", () => {
+    const total = _currentCandidates.length;
+    if(_currentPage * _pageSize > total) {
+      let next = document.querySelector(".next");
+      next.disabled = true;
+    return
+    }
+    _currentPage = Number(_currentPage + 1);
+    console.log(_currentPage);
+    renderPage();
+  });
+
+  // lùi trang
+  prev.addEventListener("click", () => {
+    if(_currentPage == 1) {
+      let prev = document.querySelector(".prev");
+      prev.disabled = true;
+      return
+    }
+
+    _currentPage = Number(_currentPage - 1);
+
+    console.log(_currentPage);
+    renderPage();
+  });
+
+window.initEventData = initEventData;

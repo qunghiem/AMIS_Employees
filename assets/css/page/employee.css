@@ -151,6 +151,7 @@
 
 .table-wrapper {
   width: 100%;
+  min-height: 90%;
   /* overflow-x: auto; */
 }
 
@@ -257,4 +258,26 @@ thead tr th:last-child {
 tr:hover td.col-action {
   position: sticky;
   right: 0;
+}
+
+.prev {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -60px -696px;
+  background-color: #7a8188 !important;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.next {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  background-color: #7a8188 !important;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -40px -696px;
+  -webkit-mask-repeat: no-repeat;
 }

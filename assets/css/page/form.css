@@ -1,30 +1,250 @@
 .form {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
+    z-index: 999;
     display: none;
 }
+
+.display-block {
+    display: block;
+}
+
 .form__bg {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black;
-    opacity: 0.1;
-    z-index: 99;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
 }
 
 .form__container {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 520px;
-    height: 80%;
-    background-color: #fff;
-    z-index: 99;
     transform: translate(-50%, -50%);
+    width: 600px;
+    height: 90%;
+    background-color: #fff;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.form__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form__header__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f1f1f;
+}
+
+.form__content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    background-color: #fff;
+}
+
+.form__content__file {
+    border: 1px dashed #d1d5db;
+    border-radius: 6px;
+    padding: 24px;
+    text-align: center;
+    background-color: #fafafa;
+    margin-bottom: 24px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.form__content__file:hover {
+    background-color: #f8fbff;
+    border-color: #2970f6;
+}
+.form__content__text {
+    font-size: 13px;
+    color: #6b7280;
+}
+.form__content__file__title {
+    color: #2970f6;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.form__content__infor {
+    display: flex;
+    gap: 20px;
+}
+
+.form__content_avatar {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.form__content_img {
+    width: 72px;
+    height: 72px;
+    border: 1px dashed #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.form__infor__user {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ms__row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ms__flex {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 5px;
+}
+.ms__flex > div {
+    flex: 1;
+}
+
+.ms__input__icon{
+    width: 16px;
+    height: 16px;
+    -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit/assets/images/ICON.svg);
+    -webkit-mask-position: -32px -48px;
+    background-color: #fff;
+}
+.ms__label {
+    font-size: 13px;
+    color: #374151;
+    font-weight: 500;
+}
+
+.ms__require {
+    color: red;
+}
+
+.ms__input input,
+.ms__input select {
+    width: 100%;
+    height: 36px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 0 10px;
+    font-size: 13px;
+    color: #1f2937;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+
+
+
+
+
+.ms__input input:focus,
+.ms__input select:focus {
+    border-color: #2970f6;
+    box-shadow: 0 0 0 2px rgba(41, 112, 246, 0.1);
+}
+.ms__input input::placeholder {
+    color: #9ca3af;
+}
+
+.form__section{
+    border-top:1px solid #e5e7eb;
+    padding-top:16px;
+    margin-top:8px;
+}
+
+.dot{
+    width: 15px;
+    min-width: 15px;
+    height: 15px;
+    background: url("../images/ICON.svg") no-repeat -95px -807px;
+}
+
+.form__add{
+    color:#2970f6;
+    font-size:13px;
+    cursor:pointer;
+    margin-top:6px;
+}
+
+.form__add:hover{
+    text-decoration:underline;
+}
+
+.ms__checkbox{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    margin-top:8px;
+}
+
+.ms__checkbox input{
+    width:16px;
+    height:16px;
+}
+
+
+
+
+
+
+.form__footer {
+    padding: 12px 24px;
+    background-color: #f9fafb;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.form__footer__btn--cancel {
+    background-color: transparent;
+    border: none;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    padding: 8px 16px;
     border-radius: 4px;
 }
+.form__footer__btn--cancel:hover {
+    background-color: #e5e7eb;
+}
+
+.form__footer__btn--save {
+    background-color: #2970f6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 20px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.form__footer__btn--save:hover {
+    background-color: #1d63e0;
+}
+
+
+
+
