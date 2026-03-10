@@ -1,16 +1,16 @@
-// code dùng chung cho nhiều trang, toàn app: validate, noti,..
+// code dùng chung cho toàn app
 
-// thu gọn sidebar
 document.addEventListener("DOMContentLoaded", () => {
+
+  // Toggle sidebar
   const toggleBtn = document.querySelector(".sidebar__toggle");
   const sidebar = document.querySelector(".layout__sidebar");
 
-  if (toggleBtn && sidebar) {
-    toggleBtn.addEventListener("click", () => {
-      // add-remove class "collapsed" khi click vào button
-      sidebar.classList.toggle("collapsed");
-    });
-  }
+  // bắt sự kiện click thu gọn - mở rộng sidebar
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+  });
 
-  initEventData();
+  // khởi động trang ứng viên
+  if (typeof initCandidatePage === "function") initCandidatePage();
 });
