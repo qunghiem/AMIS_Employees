@@ -12,6 +12,7 @@ function resetPage() {
   _currentPage = 1;
 }
 
+// lấy ra danh sách ứng viên theo page
 function getPageData() {
   const start = (_currentPage - 1) * _pageSize;
   const end = start + _pageSize;
