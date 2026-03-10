@@ -283,3 +283,43 @@ tr:hover td.col-action {
   -webkit-mask-position: -40px -696px;
   -webkit-mask-repeat: no-repeat;
 }
+
+
+.col-action {
+  text-align: center;
+}
+
+.btn-action {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+  background-color: #f1f1f1;
+  transition: all 0.2s ease;
+}
+
+.btn-action i {
+  font-size: 14px;
+}
+
+/* nút sửa */
+.btn-edit {
+  color: #2563eb;
+}
+
+.btn-edit:hover {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* nút xóa */
+.btn-delete {
+  color: #dc2626;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
+  color: white;
+}
