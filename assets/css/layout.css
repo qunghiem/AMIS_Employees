@@ -134,7 +134,7 @@
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  color: #a19f9f
+  color: #a19f9f;
 }
 
 .header__search input:focus {
@@ -147,7 +147,9 @@
 .layout {
   display: flex;
   min-height: 100vh;
-  /* margin-top: 52px; */
+  background: url(https://amisplatform.misacdn.net/images/imagesapps/recruit/background_default1.jpg);
+  width: 100%;
+  overflow: hidden;
 }
 
 .layout__sidebar {
@@ -223,7 +225,7 @@
 }
 
 .sidebar-text span {
-  background-color: #F04438;
+  background-color: #f04438;
   padding: 5px 12px;
   border-radius: 50px;
   position: absolute;
@@ -231,32 +233,32 @@
 }
 
 .sidebar__toggle {
-    position: absolute;
-    bottom: 0px;
-    padding: 12px;
-    width: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid #ccc;
-    background: none;
-    color: #fff;
-    border-radius: 5px;
-    /* text-align: left; */
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    cursor: pointer;
+  position: absolute;
+  bottom: 0px;
+  padding: 12px;
+  width: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background: none;
+  color: #fff;
+  border-radius: 5px;
+  /* text-align: left; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
 }
 
 .sidebar__toggle .icon-toogle {
-    -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -60px -696px;
-    -webkit-mask-repeat: no-repeat;
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    display: inline-block;
-    background-color: #fff !important;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -60px -696px;
+  -webkit-mask-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  display: inline-block;
+  background-color: #fff !important;
 }
 
 /* khi thu gọn sidebar  */
@@ -283,8 +285,8 @@
 
 .layout__sidebar.collapsed .icon-toogle {
   -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -40px -696px;
-    -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: -40px -696px;
+  -webkit-mask-repeat: no-repeat;
 }
 
 /* Transition mượt  */

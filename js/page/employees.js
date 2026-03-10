@@ -1,13 +1,9 @@
 // file này xử lí login cho danh mục Ứng viên
 
-// import file xử lí show/ hidden Model thêm ứng viên
-// import { initAddCandidateModal } from "./modelAddCandidates";
-
 // tạo key để lưu trong localStorage
 const STORAGE_KEY = "candidates_data";
 
-//xử lí show/ hidden Model thêm ứng viên
-// show/ hidden Model thêm ứng viên
+// xử lí show/ hidden Model thêm ứng viên
 const addCandidates = document.querySelector(".add-candidates");
 const form = document.getElementById("form__add");
 
@@ -22,7 +18,7 @@ cancleFormAdd.addEventListener("click", () => {
 
 // phân trang
 let _currentPage = 1;
-let _pageSize = 15;
+let _pageSize = 5;
 let _currentCandidates = [];
 
 // hàm lưu dữ liệu default trong localStorage
@@ -142,7 +138,7 @@ function pageInfor() {
   let start = (_currentPage - 1) * _pageSize + 1;
 
   let end = start + _pageSize - 1;
-  if(total < end) end = total;
+  if (total < end) end = total;
 
   let indexRecord = document.querySelector(".index-record");
   indexRecord.textContent = `
@@ -168,41 +164,41 @@ function initEventData() {
   let pageSize = document.getElementById("select_page_size");
   pageSize.addEventListener("change", () => {
     _pageSize = Number(pageSize.value);
+    console.log(_pageSize);
+
     renderPage();
   });
-
 }
 
+// hàm xử lí tiến, lùi trang
+let prev = document.querySelector(".prev");
+let next = document.querySelector(".next");
 
-  // hàm xử lí tiến, lùi trang
-  let prev = document.querySelector(".prev");
-  let next = document.querySelector(".next");
+// tiến trang
+next.addEventListener("click", () => {
+  const total = _currentCandidates.length;
+  if (_currentPage * _pageSize >= total) {
+    let next = document.querySelector(".next");
+    next.disabled = true;
+    return;
+  }
+  _currentPage = Number(_currentPage + 1);
+  console.log(_currentPage);
+  renderPage();
+});
 
-  // tiến trang
-  next.addEventListener("click", () => {
-    const total = _currentCandidates.length;
-    if(_currentPage * _pageSize > total) {
-      let next = document.querySelector(".next");
-      next.disabled = true;
-    return
-    }
-    _currentPage = Number(_currentPage + 1);
-    console.log(_currentPage);
-    renderPage();
-  });
+// lùi trang
+prev.addEventListener("click", () => {
+  if (_currentPage == 1) {
+    let prev = document.querySelector(".prev");
+    prev.disabled = true;
+    return;
+  }
 
-  // lùi trang
-  prev.addEventListener("click", () => {
-    if(_currentPage == 1) {
-      let prev = document.querySelector(".prev");
-      prev.disabled = true;
-      return
-    }
+  _currentPage = Number(_currentPage - 1);
 
-    _currentPage = Number(_currentPage - 1);
-
-    console.log(_currentPage);
-    renderPage();
-  });
+  console.log(_currentPage);
+  renderPage();
+});
 
 window.initEventData = initEventData;
