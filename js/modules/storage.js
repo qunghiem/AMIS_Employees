@@ -20,3 +20,11 @@ function getAllCandidates() {
 function saveAllCandidates(data) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
+
+// hàm thêm ứng viên 
+function addCandidate(newCandidate) {
+  const candidates = getAllCandidates();
+  candidates.unshift(newCandidate); // thêm vào đầu danh sách
+  // lưu 
+  saveAllCandidates(candidates);
+}

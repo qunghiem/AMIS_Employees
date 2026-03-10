@@ -189,17 +189,17 @@
           <div class="form__infor__user">
             <div class="ms__row">
               <label class="ms__label">Họ và tên <span class="ms__require">*</span></label>
-              <div class="ms__input"><input type="text" placeholder="Nhập họ và tên"></div>
+              <div class="ms__input"><input id="input-fullName" type="text" placeholder="Nhập họ và tên"></div>
             </div>
             <div class="ms__row ms__flex">
               <div>
                 <label class="ms__label">Ngày sinh <span class="ms__require">*</span></label>
-                <div class="ms__input"><input type="date"></div>
+                <div class="ms__input"><input id="input-dob" type="date"></div>
               </div>
               <div>
                 <label class="ms__label">Giới tính <span class="ms__require">*</span></label>
                 <div class="ms__input">
-                  <select>
+                  <select id="input-gender">
                     <option value="">Chọn giới tính</option>
                     <option value="male">Nam</option>
                     <option value="female">Nữ</option>
@@ -210,29 +210,29 @@
             </div>
             <div class="ms__row">
               <label class="ms__label">Khu vực <span class="ms__require">*</span></label>
-              <div class="ms__input"><input type="text"></div>
+              <div class="ms__input"><input id="input-area" type="text"></div>
             </div>
             <div class="ms__row ms__flex">
               <div>
                 <label class="ms__label">Số điện thoại</label>
-                <div class="ms__input"><input type="text" placeholder="Nhập số điện thoại"></div>
+                <div class="ms__input"><input id="input-phone" type="text" placeholder="Nhập số điện thoại"></div>
               </div>
               <div>
                 <label class="ms__label">Email</label>
-                <div class="ms__input"><input type="email" placeholder="Nhập email"></div>
+                <div class="ms__input"><input id="input-email" type="email" placeholder="Nhập email"></div>
               </div>
             </div>
             <div class="ms__row">
               <label class="ms__label">Quốc gia <span class="ms__require">*</span></label>
-              <div class="ms__input"><input type="text" placeholder="Nhập quốc gia"></div>
+              <div class="ms__input"><input id="input-country" type="text" placeholder="Nhập quốc gia"></div>
             </div>
             <div class="ms__row">
               <label class="ms__label">Tỉnh / Thành phố <span class="ms__require">*</span></label>
-              <div class="ms__input"><select><option value=""></option></select></div>
+              <div class="ms__input"><select id="input-province"><option value=""></option></select></div>
             </div>
             <div class="ms__row">
               <label class="ms__label">Phường / Xã <span class="ms__require">*</span></label>
-              <div class="ms__input"><select><option value=""></option></select></div>
+              <div class="ms__input"><select id="input-ward"><option value=""></option></select></div>
             </div>
             <div class="ms__row">
               <label class="ms__label">Địa chỉ <span class="ms__require">*</span></label>
@@ -298,6 +298,7 @@
   <script src="./js/modules/storage.js"></script>
   <script src="./js/modules/pagination.js"></script>
   <script src="./js/modules/candidateRenderer.js"></script>
+  <script src="./js/modules/candidatesForm.js"></script>
 
   <!-- import page  -->
   <script src="./js/page/employees.js"></script>

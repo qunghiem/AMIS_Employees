@@ -52,6 +52,14 @@ function renderPageInfo() {
   document.querySelector(".total-record").textContent = `Tổng bản ghi: ${total}`;
   document.querySelector(".index-record").textContent = `${start} - ${end} bản ghi`;
 
-  if(isFirstPage()) document.querySelector(".prev").disabled = true;
-  if(isLastPage()) document.querySelector(".next").disabled = true;
+  if(isFirstPage()) {
+    document.querySelector(".prev").disabled = true;
+  } else {
+    document.querySelector(".prev").disabled = false;
+  }
+  if(isLastPage()) {
+    document.querySelector(".next").disabled = true;
+  } else {
+    document.querySelector(".next").disabled = false;
+  }
 }
