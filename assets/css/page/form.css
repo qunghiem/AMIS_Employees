@@ -5,10 +5,6 @@
     display: none;
 }
 
-.display-block {
-    display: block;
-}
-
 .form__bg {
     position: absolute;
     inset: 0;
@@ -244,7 +240,4 @@
 .form__footer__btn--save:hover {
     background-color: #1d63e0;
 }
-
-
-
 

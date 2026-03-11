@@ -32,7 +32,9 @@
       <div class="header__store"></div>
       <div class="header__help"></div>
       <div class="header__avatar">
-        <img src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64" alt="">
+        <img
+          src="https://amisplatform.misacdn.net/APIS/PlatformAPI/api/Avatar/77b8feac-dfe5-4b47-b1ff-ac9a2eaced5a/LT0YJBOP.jpg?avatarID=03762a31-c8c5-45ae-887b-17bcdc47043b&width=64&height=64"
+          alt="">
       </div>
     </div>
   </header>
@@ -101,15 +103,54 @@
       </div>
 
       <div class="content">
+        <div class="selected_content display-none">
+          <p class="selected-count"></p>
+          <button class="unselect ">Bỏ chọn</button>
+          <button class="send-email btn-selected">
+            <div class="btn-selected__icon send-email__icon">
+
+            </div>
+            Gửi email
+          </button>
+          <button class="tag-manager btn-selected">
+            <div class="btn-selected__icon tag-manager__icon">
+
+            </div>
+            Quản lý thẻ
+          </button>
+          <button class="create-job btn-selected">
+            <div class="btn-selected__icon create-job__icon">
+
+            </div>
+            Tạo công việc
+          </button>
+                <div id="delete-selected" class="btn-selected">Xóa ứng viên đã chọn</div>
+
+
+
+
+        </div>
         <div class="content__nav">
+
           <div class="content__search">
             <input id="input-search" type="text" placeholder="Tìm kiếm hoặc nhờ AI trợ giúp">
+
+
           </div>
+
           <div class="content__feature">
-            <div class="filter"><div class="icon"></div></div>
-            <div class="filter"><div class="icon"></div></div>
-            <div class="filter"><div class="icon"></div></div>
-            <div class="filter"><div class="icon"></div></div>
+            <div class="filter">
+              <div class="icon"></div>
+            </div>
+            <div class="filter">
+              <div class="icon"></div>
+            </div>
+            <div class="filter">
+              <div class="icon"></div>
+            </div>
+            <div class="filter">
+              <div class="icon"></div>
+            </div>
           </div>
         </div>
 
@@ -118,7 +159,7 @@
             <table class="candidate-table">
               <thead>
                 <tr>
-                  <th class="checkbox" id="check-all"><input type="checkbox"></th>
+                  <th class="checkbox"><input id="check-all" type="checkbox"></th>
                   <th>Họ và tên</th>
                   <th>Số điện thoại</th>
                   <th>Nguồn ứng viên</th>
@@ -134,7 +175,7 @@
                 </tr>
               </thead>
               <tbody>
-                
+
               </tbody>
             </table>
           </div>
@@ -169,7 +210,9 @@
     <div class="form__container">
       <div class="form__header">
         <div class="form__header__title">Thêm ứng viên</div>
-        <div class="mi__icon"><div class="mi__icon__close"></div></div>
+        <div class="mi__icon">
+          <div class="mi__icon__close"></div>
+        </div>
       </div>
 
       <div class="form__content">
@@ -231,24 +274,24 @@
             <div class="ms__row">
               <label class="ms__label">Tỉnh / Thành phố <span class="ms__require">*</span></label>
               <div class="ms__input"><select id="input-province">
-                <option value="hanoi">Hà Nội</option>
-                <option value="hcm">TP.HCM</option>
-                <option value="danang">Đà Nẵng</option>
-                <option value="haiphong">Hải Phòng</option>
-              </select></div>
+                  <option value="hanoi">Hà Nội</option>
+                  <option value="hcm">TP.HCM</option>
+                  <option value="danang">Đà Nẵng</option>
+                  <option value="haiphong">Hải Phòng</option>
+                </select></div>
             </div>
             <div class="ms__row">
               <label class="ms__label">Phường / Xã <span class="ms__require">*</span></label>
               <div class="ms__input"><select id="input-ward">
-                <option value="1">Xã 1</option>
-                <option value="2">Xã 2</option>
-                <option value="3">Xã 3</option>
-                <option value="4">Xã 4</option>
-                <option value="5">Xã 5</option>
-                <option value="6">Xã 6</option>
-                <option value="7">Xã 7</option>
-                <option value="8">Xã 8</option>
-              </select></div>
+                  <option value="1">Xã 1</option>
+                  <option value="2">Xã 2</option>
+                  <option value="3">Xã 3</option>
+                  <option value="4">Xã 4</option>
+                  <option value="5">Xã 5</option>
+                  <option value="6">Xã 6</option>
+                  <option value="7">Xã 7</option>
+                  <option value="8">Xã 8</option>
+                </select></div>
             </div>
             <div class="ms__row">
               <label class="ms__label">Địa chỉ <span class="ms__require">*</span></label>
@@ -259,15 +302,23 @@
               <div class="form__section__title">HỌC VẤN</div>
               <div class="ms__row ms__flex">
                 <div><label class="ms__label">Trình độ đào tạo</label></div>
-                <div><div class="ms__input"><input id="input-educationLevel" type="text" placeholder="Nhập trình độ đào tạo"></div></div>
+                <div>
+                  <div class="ms__input"><input id="input-educationLevel" type="text"
+                      placeholder="Nhập trình độ đào tạo"></div>
+                </div>
               </div>
               <div class="ms__row ms__flex">
                 <div><label class="ms__label">Nơi đào tạo</label></div>
-                <div><div class="ms__input"><input id="input-educationPlace" type="text" placeholder="Nhập nơi đào tạo"></div></div>
+                <div>
+                  <div class="ms__input"><input id="input-educationPlace" type="text" placeholder="Nhập nơi đào tạo">
+                  </div>
+                </div>
               </div>
               <div class="ms__row ms__flex">
                 <div><label class="ms__label">Chuyên ngành</label></div>
-                <div><div class="ms__input"><input id="input-major" type="text" placeholder="Nhập chuyên ngành"></div></div>
+                <div>
+                  <div class="ms__input"><input id="input-major" type="text" placeholder="Nhập chuyên ngành"></div>
+                </div>
               </div>
               <div class="form__add">+ Thêm học vấn</div>
             </div>
@@ -286,35 +337,36 @@
                     <option value="2">TopCV</option>
                     <option value="3">LinkedIn</option>
                   </select>
-              </div>
+                </div>
               </div>
             </div>
             <div class="ms__row ms__flex">
               <div>
                 <label class="ms__label">Nhân sự khai thác</label>
                 <div class="ms__input"><select id="input-recruiter">
-                  <option value="" selected disabled>Chọn nhân sự khai thác</option>
-                  <option value="1">Đinh Nga QTHT</option>
-                  <option value="2">Le Linh HR</option>
-                  <option value="3">Tung Duong QTHT</option>
-                  <option value="4">Khanh Huyen HR</option>
-                </select></div>
+                    <option value="" selected disabled>Chọn nhân sự khai thác</option>
+                    <option value="1">Đinh Nga QTHT</option>
+                    <option value="2">Le Linh HR</option>
+                    <option value="3">Tung Duong QTHT</option>
+                    <option value="4">Khanh Huyen HR</option>
+                  </select></div>
               </div>
               <div>
                 <label class="ms__label">Cộng tác viên</label>
                 <div class="ms__input">
                   <select id="input-collaborator">
                     <option value="" selected disabled>Chọn cộng tác viên</option>
-                    <option value="1" >CTV 1</option>
-                    <option value="2" >CTV 2</option>
-                    <option value="3" >CTV 3</option>
+                    <option value="1">CTV 1</option>
+                    <option value="2">CTV 2</option>
+                    <option value="3">CTV 3</option>
                   </select>
-              </div>
+                </div>
               </div>
             </div>
             <div class="ms__row">
               <label class="ms__label">Nơi làm việc gần đây</label>
-              <div class="ms__input"><input id="input-recentWorkplace" type="text" placeholder="Nhập nơi làm việc gần đây"></div>
+              <div class="ms__input"><input id="input-recentWorkplace" type="text"
+                  placeholder="Nhập nơi làm việc gần đây"></div>
             </div>
           </div>
         </div>
@@ -344,4 +396,5 @@
   <script src="./js/main.js"></script>
 
 </body>
+
 </html>

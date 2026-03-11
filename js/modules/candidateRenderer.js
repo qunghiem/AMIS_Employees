@@ -23,7 +23,7 @@ function renderCandidates(candidates) {
   candidates.forEach((employee) => {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td class="checkbox"><input type="checkbox"></td>
+      <td class="checkbox"><input type="checkbox" data-id=${employee.employeeId}></td>
       <td>
         <div class="avatar-cell">
           <img class="avatar" src="${DEFAULT_AVATAR}" alt="${employee.fullName || "--"}">
@@ -75,3 +75,35 @@ function renderPageInfo() {
     document.querySelector(".next").disabled = false;
   }
 }
+
+
+// hàm render số lượng tich chọn
+function renderSelectedCount() {
+  document.querySelector("tbody").addEventListener("change", () => {
+    const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');
+    if(checkboxes.length > 0) {
+      _totalChecked = checkboxes.length;
+      document.querySelector(".selected-count").textContent = `${_totalChecked} đang chọn`;
+      document.querySelector(".content__nav").classList.add("display-none");
+      document.querySelector(".selected_content").classList.add("display-flex");
+
+    } else {
+      document.querySelector(".content__nav").classList.remove("display-none");
+      document.querySelector(".selected_content").classList.remove("display-flex");
+    }
+  })
+}
+
+// hàm ẩn selected, show thanh search 
+function showSearch() {
+  document.querySelector(".content__nav").classList.remove("display-none");
+      document.querySelector(".selected_content").classList.remove("display-flex");
+}
+
+// hàm render lại số lượng tick chọn về 0 khi click bỏ chọn tất cả
+function renderTotalCheckedToZero() {
+  document.querySelector(".selected-count").textContent = `0 đang chọn`;
+}
+
+window.showSearch = showSearch;
+window.renderTotalCheckedToZero = renderTotalCheckedToZero;

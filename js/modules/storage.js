@@ -63,4 +63,8 @@ function deleteCandidate(employeeId) {
   const filtered = candidates.filter(emp => emp.employeeId !== Number(employeeId));
 
   saveAllCandidates(filtered);
+
+  showSearch();
+
+  renderTotalCheckedToZero();
 }

@@ -11,6 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     sidebar.classList.toggle("collapsed");
   });
 
-  // khởi động trang ứng viên
+  // chạy trang ứng viên
   if (typeof initCandidatePage === "function") initCandidatePage();
 });
