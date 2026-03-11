@@ -1,5 +1,4 @@
 // Quản lý toàn bộ thao tác với localStorage
-
 const STORAGE_KEY = "candidates_data";
 
 function saveDefaultDataToStorage() {

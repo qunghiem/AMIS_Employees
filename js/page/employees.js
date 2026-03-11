@@ -110,11 +110,13 @@ function initCandidatePage() {
     .querySelector(".form__footer__btn--cancel")
     .addEventListener("click", () => {
       document.getElementById("form__add").classList.remove("display-block");
+      resetForm(); //reset form mỗi khi click hủy để đóng modal
     });
 
   // hủy Modal
   document.querySelector(".form__bg").addEventListener("click", () => {
     document.getElementById("form__add").classList.remove("display-block");
+    resetForm(); //reset form mỗi khi click hủy để đóng modal
   });
 
   // lưu/ thêm thông tin ứng viên
@@ -122,7 +124,7 @@ function initCandidatePage() {
     .querySelector(".form__footer__btn--save")
     .addEventListener("click", handleSaveCandidate);
 
-  // bắt sự kiện click vào nút sửa, xóa trên bảng
+  // bắt sự kiện click vào nút sửa, xóa
   document.querySelector("tbody").addEventListener("click", (e) => {
     // nút sửa
     const editBtn = e.target.closest(".btn-edit");
@@ -134,7 +136,7 @@ function initCandidatePage() {
       return;
     }
 
-    // nút xóa
+    // nút xóa - xóa 1 ứng viên
     const deleteBtn = e.target.closest(".btn-delete");
     if (deleteBtn) {
       const id = deleteBtn.dataset.id;
