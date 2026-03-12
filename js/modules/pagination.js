@@ -28,12 +28,14 @@ function getPageData() {
   const end = start + _pageSize;
   return _currentCandidates.slice(start, end);
 }
- 
+
+// tiến trang 
 function goNextPage() {
   if (isLastPage()) return;
   _currentPage++;
 }
  
+// lùi trang 
 function goPrevPage() {
   if (isFirstPage()) return;
   _currentPage--;

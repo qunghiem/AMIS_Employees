@@ -14,7 +14,8 @@ function renderCandidates(candidates) {
       </tr>`;
     return;
   }
- 
+  
+
   candidates.forEach((employee) => {
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -47,9 +48,12 @@ function renderCandidates(candidates) {
         </button>
       </td>
     `;
+
+    
     tbody.appendChild(row);
   });
 }
+
  
 function renderPageInfo() {
   const { start, end, total } = getPageInfo();
