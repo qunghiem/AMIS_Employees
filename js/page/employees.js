@@ -86,7 +86,7 @@ function uncheckAll() {
   showSearchBar();
 }
  
-// Theo dõi trạng thái checkbox trong tbody (event delegation)
+// Theo dõi trạng thái checkbox trong tbody 
 function initCheckboxListener() {
   document.querySelector("tbody").addEventListener("change", (e) => {
     if (!e.target.matches('input[type="checkbox"]')) return;
@@ -186,7 +186,23 @@ function initCandidatePage() {
       showSearchBar();
     }
   });
- 
+
+  // nếu bỏ 1 checkbox nào đó, thì cũng bỏ check cho nút check-all
+  document.addEventListener("click", (e) => {
+  if (e.target.type === "checkbox" && e.target.id !== "checked-all") {
+    
+    const allCheckbox = document.querySelectorAll('tbody input[type="checkbox"]');
+    const checkedCheckbox = document.querySelectorAll('tbody input[type="checkbox"]:checked');
+
+    const checkAll = document.getElementById("checked-all");
+
+    if (allCheckbox.length === checkedCheckbox.length) {
+      checkAll.checked = true;
+    } else {
+      checkAll.checked = false;
+    }
+  }
+});
   // Lắng nghe thay đổi checkbox
   initCheckboxListener();
 }
