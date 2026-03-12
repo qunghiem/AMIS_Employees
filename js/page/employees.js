@@ -4,7 +4,7 @@ let _totalChecked = 0; // biến đếm số lượng checkbox đã tích
 // hàm render trang hiện tại
 function renderPage() {
   const pageData = getPageData();
-renderCandidates(pageData);  
+  renderCandidates(pageData);
   renderPageInfo();
 }
 // hàm hiển thị toàn bộ danh sách
@@ -149,12 +149,14 @@ function initCandidatePage() {
 
   // hàm bỏ chọn những ô đã tích
   document.querySelector(".unselect").addEventListener("click", () => {
-    const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');
-    checkboxes.forEach(checkbox => checkbox.checked = false);
+    const checkboxes = document.querySelectorAll(
+      'tbody input[type="checkbox"]:checked',
+    );
+    checkboxes.forEach((checkbox) => (checkbox.checked = false));
 
     _totalChecked = 0;
     renderTotalCheckedToZero();
-  })
+  });
 
   // hàm kiểm tra xem có ít nhất 1 checkbox nào được tích hay không để hiển thị nút xóa những ứng viên đã chọn
   renderSelectedCount();
@@ -162,22 +164,49 @@ function initCandidatePage() {
   // hàm xóa những ứng viên đã chọn
   document.getElementById("delete-selected").addEventListener("click", () => {
     // lấy ra danh sách ứng viên đã tích vào checkbox
-    const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]:checked');
+    const checkboxes = document.querySelectorAll(
+      'tbody input[type="checkbox"]:checked',
+    );
     console.log(checkboxes);
 
     // lọc lấy id danh sách trên
-    const idsToDelete = Array.from(checkboxes).map(checkbox => checkbox.dataset.id);
+    const idsToDelete = Array.from(checkboxes).map(
+      (checkbox) => checkbox.dataset.id,
+    );
     console.log(idsToDelete);
 
     // gọi hàm delete + lọc => xóa từng ứng viên
-    idsToDelete.forEach(id => deleteCandidate(id));
+    idsToDelete.forEach((id) => deleteCandidate(id));
 
     // hiển thị lại thanh search sau khi xóa những ứng viên đã chọn
-    showSearch(); 
+    showSearch();
 
     // hiển thị lại danh sách sau khi xóa
     displayCandidates();
-  })
+  });
+
+  // bắt sự kiện click checked-all
+  const checkAll = document.getElementById("checked-all");
+  checkAll.addEventListener("click", () => {
+    if (document.getElementById("checked-all").checked) {
+      getPageData().forEach((employee) => {
+        // console.log(employee.employeeId);
+        const checkbox = document.querySelector(
+          `input[data-id="${employee.employeeId}"]`,
+        );
+        checkbox.checked = true;
+
+        // console.log(checkbox);
+      });
+    } else {
+      getPageData().forEach((employee) => {
+        const checkbox = document.querySelector(
+          `input[data-id="${employee.employeeId}"]`,
+        );
+        checkbox.checked = false;
+      });
+    }
+  });
 }
 
 window._totalChecked = _totalChecked;
