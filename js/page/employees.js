@@ -1,212 +1,192 @@
-// Xử lý logic trang Ứng viên
-let _totalChecked = 0; // biến đếm số lượng checkbox đã tích
 
-// hàm render trang hiện tại
-function renderPage() {
-  const pageData = getPageData();
-  renderCandidates(pageData);
+// hàm render lại trang sau khi có thay đổi dữ liệu
+function renderPage() { 
+  // render thông tin bảng
+  renderCandidates(getPageData());
+  // render phân trang
   renderPageInfo();
 }
-// hàm hiển thị toàn bộ danh sách
-function displayCandidates() {
-  const candidates = getAllCandidates();
-  setCurrentCandidates(candidates);
-  resetPage(); // reset current page về 1
-  renderPage();
-}
-// hàm tìm kiếm theo tên, sđt, email
-function searchCandidates(keyword) {
-  const all = getAllCandidates();
-
-  // chuẩn hóa keyword nhập liệu
-  const trimmed = keyword.trim().toLowerCase();
-
-  if (!trimmed) {
-    setCurrentCandidates(all);
-  } else {
-    const filtered = all.filter((emp) => {
-      if (emp.fullName && emp.fullName.toLowerCase().includes(trimmed))
-        return true;
-      if (emp.phoneNumber && emp.phoneNumber.toLowerCase().includes(trimmed))
-        return true;
-      if (emp.email && emp.email.toLowerCase().includes(trimmed)) return true;
-      return false;
-    });
-    setCurrentCandidates(filtered);
-  }
-
+ 
+// hàm hiển thị toàn bộ ứng viên
+function displayAllCandidates() {
+  setCurrentCandidates(getAllCandidates());
   resetPage();
   renderPage();
 }
-
-// hàm lưu thêm ứng viên
-function handleSaveCandidate() {
-  // lấy data ứng viên từ các ô input
-  const newCandidate = getFormValues();
-
-  // kiểm tra validate data
-  if (!validateForm(newCandidate)) return;
-
-  // lấy id ứng viên đang edit
-  const editingId = getEditingId();
-
-  if (editingId) {
-    newCandidate.employeeId = editingId; // giữ lại id cũ nếu đang sửa
-    updateCandidate(newCandidate);
-  } else {
-    // chưa có edtitingID thì thêm mới ứng viên vào storage
-    addCandidate(newCandidate);
-  }
-
-  // hiển thị data mới
-  displayCandidates();
-
-  // reset form
-  resetForm();
-
-  // đóng model
-  document.getElementById("form__add").classList.remove("display-block");
+ 
+function searchCandidates(keyword) {
+  const trimmed = keyword.trim().toLowerCase();
+  const all = getAllCandidates();
+ 
+  const filtered = trimmed ? all.filter((emp) =>
+          emp.fullName?.toLowerCase().includes(trimmed) ||
+          emp.phoneNumber?.toLowerCase().includes(trimmed) ||
+          emp.email?.toLowerCase().includes(trimmed)) : all;
+ 
+  setCurrentCandidates(filtered);
+  resetPage();
+  renderPage();
 }
-// Khởi tạo sự kiện
+ 
+// --- Modal helpers ---
+ 
+function openAddModal() {
+  resetForm();
+  document.getElementById("form__add").classList.add("display-block");
+}
+ 
+function openEditModal(employeeId) {
+  const candidate = getCandidateById(employeeId);
+  if (!candidate) return;
+ 
+  setEditingId(candidate.employeeId);
+  fillFormForEdit(candidate);
+  document.querySelector(".form__header__title").textContent =
+    "Chỉnh sửa thông tin ứng viên";
+  document.getElementById("form__add").classList.add("display-block");
+}
+ 
+function closeModal() {
+  document.getElementById("form__add").classList.remove("display-block");
+  resetForm();
+}
+ 
+// --- Lưu ứng viên (thêm mới hoặc cập nhật) ---
+ 
+function handleSaveCandidate() {
+  const formData = getFormValues();
+  if (!validateForm(formData)) return;
+ 
+  const editingId = getEditingId();
+  if (editingId) {
+    formData.employeeId = editingId;
+    updateCandidate(formData);
+  } else {
+    addCandidate(formData);
+  }
+ 
+  displayAllCandidates();
+  closeModal();
+}
+ 
+// --- Checkbox logic ---
+ 
+function getCheckedIds() {
+  return Array.from(
+    document.querySelectorAll('tbody input[type="checkbox"]:checked')
+  ).map((cb) => cb.dataset.id);
+}
+ 
+function uncheckAll() {
+  document
+    .querySelectorAll('tbody input[type="checkbox"]:checked')
+    .forEach((x) => (x.checked = false));
+  document.getElementById("checked-all").checked = false;
+  renderSelectedCount(0);
+  showSearchBar();
+}
+ 
+// Theo dõi trạng thái checkbox trong tbody (event delegation)
+function initCheckboxListener() {
+  document.querySelector("tbody").addEventListener("change", (e) => {
+    if (!e.target.matches('input[type="checkbox"]')) return;
+ 
+    const checkedIds = getCheckedIds();
+    if (checkedIds.length > 0) {
+      renderSelectedCount(checkedIds.length);
+      showSelectionToolbar();
+    } else {
+      showSearchBar();
+    }
+  });
+}
+ 
+// --- Init trang ---
+ 
 function initCandidatePage() {
   saveDefaultDataToStorage();
-  displayCandidates();
-
+  displayAllCandidates();
+ 
   // Tìm kiếm
-  document
-    .getElementById("input-search")
-    .addEventListener("input", function () {
-      searchCandidates(this.value);
-    });
-
-  // Thay đổi pageSize - số bản ghi trong 1 trang
-  document
-    .getElementById("select_page_size")
-    .addEventListener("change", function () {
-      _pageSize = Number(this.value);
-      resetPage();
-      renderPage();
-    });
-
-  // Phân trang - lùi trang
+  document.getElementById("input-search").addEventListener("input", function () {
+    searchCandidates(this.value);
+  });
+ 
+  // Đổi số bản ghi/trang
+  document.getElementById("select_page_size").addEventListener("change", function () {
+    setPageSize(Number(this.value));
+    resetPage();
+    renderPage();
+  });
+ 
+  // Phân trang
   document.querySelector(".prev").addEventListener("click", () => {
     goPrevPage();
     renderPage();
   });
-
-  // Phân trang - tiến trang
   document.querySelector(".next").addEventListener("click", () => {
     goNextPage();
     renderPage();
   });
-
-  // Modal thêm ứng viên
-  // bắt sự kiện click mở Modal
-  document.querySelector(".add-candidates").addEventListener("click", () => {
-    document.getElementById("form__add").classList.add("display-block");
-  });
-
-  // đóng Modal
-  document
-    .querySelector(".form__footer__btn--cancel")
-    .addEventListener("click", () => {
-      document.getElementById("form__add").classList.remove("display-block");
-      resetForm(); //reset form mỗi khi click hủy để đóng modal
-    });
-
-  // hủy Modal
-  document.querySelector(".form__bg").addEventListener("click", () => {
-    document.getElementById("form__add").classList.remove("display-block");
-    resetForm(); //reset form mỗi khi click hủy để đóng modal
-  });
-
-  // lưu/ thêm thông tin ứng viên
-  document
-    .querySelector(".form__footer__btn--save")
-    .addEventListener("click", handleSaveCandidate);
-
-  // bắt sự kiện click vào nút sửa, xóa
+ 
+  // Mở modal thêm
+  document.querySelector(".add-candidates").addEventListener("click", openAddModal);
+ 
+  // Đóng modal (nút Hủy & click backdrop)
+  document.querySelector(".form__footer__btn--cancel").addEventListener("click", closeModal);
+  document.querySelector(".form__bg").addEventListener("click", closeModal);
+ 
+  // Lưu ứng viên
+  document.querySelector(".form__footer__btn--save").addEventListener("click", handleSaveCandidate);
+ 
+  // Nút Sửa / Xóa trong bảng (event delegation)
   document.querySelector("tbody").addEventListener("click", (e) => {
-    // nút sửa
     const editBtn = e.target.closest(".btn-edit");
     if (editBtn) {
-      // lấy id của ứng viên cần sửa từ data-id của nút sửa
-      const id = editBtn.dataset.id;
-      // mở form sửa, truyền id ứng viên cần sửa vào form
-      openEditForm(id);
+      openEditModal(editBtn.dataset.id);
       return;
     }
-
-    // nút xóa - xóa 1 ứng viên
+ 
     const deleteBtn = e.target.closest(".btn-delete");
     if (deleteBtn) {
-      const id = deleteBtn.dataset.id;
-      deleteCandidate(id);
-      displayCandidates(); // hiển thị lại danh sách sau khi xóa
-      return;
+      if (!confirm("Bạn có chắc muốn xóa ứng viên này?")) return;
+      deleteCandidateById(deleteBtn.dataset.id);
+      displayAllCandidates();
     }
   });
-
-  // hàm bỏ chọn những ô đã tích
-  document.querySelector(".unselect").addEventListener("click", () => {
-    const checkboxes = document.querySelectorAll(
-      'tbody input[type="checkbox"]:checked',
-    );
-    checkboxes.forEach((checkbox) => (checkbox.checked = false));
-
-    _totalChecked = 0;
-    renderTotalCheckedToZero();
-  });
-
-  // hàm kiểm tra xem có ít nhất 1 checkbox nào được tích hay không để hiển thị nút xóa những ứng viên đã chọn
-  renderSelectedCount();
-
-  // hàm xóa những ứng viên đã chọn
+ 
+  // Bỏ chọn tất cả
+  document.querySelector(".unselect").addEventListener("click", uncheckAll);
+ 
+  // Xóa các ứng viên đã chọn
   document.getElementById("delete-selected").addEventListener("click", () => {
-    // lấy ra danh sách ứng viên đã tích vào checkbox
-    const checkboxes = document.querySelectorAll(
-      'tbody input[type="checkbox"]:checked',
-    );
-    console.log(checkboxes);
-
-    // lọc lấy id danh sách trên
-    const idsToDelete = Array.from(checkboxes).map(
-      (checkbox) => checkbox.dataset.id,
-    );
-    console.log(idsToDelete);
-
-    // gọi hàm delete + lọc => xóa từng ứng viên
-    idsToDelete.forEach((id) => deleteCandidate(id));
-
-    // hiển thị lại thanh search sau khi xóa những ứng viên đã chọn
-    showSearch();
-
-    // hiển thị lại danh sách sau khi xóa
-    displayCandidates();
+    const ids = getCheckedIds();
+    if (ids.length === 0) return;
+    if (!confirm(`Bạn có chắc muốn xóa ${ids.length} ứng viên đã chọn?`)) return;
+ 
+    // Xóa 1 lần, ghi storage 1 lần (hiệu quả hơn xóa từng cái)
+    deleteCandidatesByIds(ids);
+    showSearchBar();
+    displayAllCandidates();
   });
-
-  // bắt sự kiện click checked-all
-  const checkAll = document.getElementById("checked-all");
-  checkAll.addEventListener("click", () => {
-    if (document.getElementById("checked-all").checked) {
-      getPageData().forEach((employee) => {
-        // console.log(employee.employeeId);
-        const checkbox = document.querySelector(
-          `input[data-id="${employee.employeeId}"]`,
-        );
-        checkbox.checked = true;
-
-        // console.log(checkbox);
-      });
+ 
+  // Check all / uncheck all
+  document.getElementById("checked-all").addEventListener("click", function () {
+    const isChecked = this.checked;
+    getPageData().forEach((emp) => {
+      const cb = document.querySelector(`input[data-id="${emp.employeeId}"]`);
+      if (cb) cb.checked = isChecked;
+    });
+ 
+    const count = isChecked ? getPageData().length : 0;
+    if (count > 0) {
+      renderSelectedCount(count);
+      showSelectionToolbar();
     } else {
-      getPageData().forEach((employee) => {
-        const checkbox = document.querySelector(
-          `input[data-id="${employee.employeeId}"]`,
-        );
-        checkbox.checked = false;
-      });
+      showSearchBar();
     }
   });
+ 
+  // Lắng nghe thay đổi checkbox
+  initCheckboxListener();
 }
-
-window._totalChecked = _totalChecked;

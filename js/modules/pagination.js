@@ -1,49 +1,55 @@
 // Quản lý trạng thái & logic phân trang
 
 let _currentPage = 1;
-let _pageSize = 10;
-let _currentCandidates = [];
+let _pageSize = CONFIG.DEFAULT_PAGE_SIZE;
+let _currentCandidates = []; // danh sách ứng viên đã lọc
 
+// set lại danh sách ứng viên sau khi thêm/sửa/xóa
 function setCurrentCandidates(candidates) {
   _currentCandidates = candidates;
 }
 
+// lấy tất cả ứng viên đã lọc 
+function getCurrentCandidates() {
+  return _currentCandidates;
+}
+ 
 function resetPage() {
   _currentPage = 1;
 }
+ 
+function setPageSize(size) {
+  _pageSize = size;
+}
 
-// lấy ra danh sách ứng viên theo page
+// lấy dữ liệu ứng viên cho trang hiện tại
 function getPageData() {
   const start = (_currentPage - 1) * _pageSize;
   const end = start + _pageSize;
   return _currentCandidates.slice(start, end);
 }
-
-// tiến sang trang
+ 
 function goNextPage() {
-  if (_currentPage * _pageSize >= _currentCandidates.length) return;
+  if (isLastPage()) return;
   _currentPage++;
 }
-
-// lùi trang
+ 
 function goPrevPage() {
-  if (_currentPage <= 1) return;
+  if (isFirstPage()) return;
   _currentPage--;
 }
-
-// kiểm tra có phải trang đầu không
+ 
 function isFirstPage() {
   return _currentPage <= 1;
 }
-
-// kiểm tra có phải trang cuổi không
+ 
 function isLastPage() {
   return _currentPage * _pageSize >= _currentCandidates.length;
 }
-
+ 
 function getPageInfo() {
-  let total = _currentCandidates.length;
-  let start = (_currentPage - 1) * _pageSize + 1;
+  const total = _currentCandidates.length;
+  const start = total === 0 ? 0 : (_currentPage - 1) * _pageSize + 1;
   let end = start + _pageSize - 1;
   if (end > total) end = total;
   return { start, end, total };

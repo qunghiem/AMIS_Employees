@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Toggle sidebar
+  // Toggle sidebar thu gọn / mở rộng
   const toggleBtn = document.querySelector(".sidebar__toggle");
   const sidebar = document.querySelector(".layout__sidebar");
 
