@@ -1,15 +1,20 @@
-// --- Lưu trạng thái checkbox đã chọn ---
+// Lưu trạng thái checkbox đã chọn
 const _selectedIds = new Set();
 
 function syncSelectedIdsFromDOM() {
-  document.querySelectorAll('tbody input[type="checkbox"]:checked').forEach((cb) => {
-    _selectedIds.add(Number(cb.dataset.id));
-  });
-  document.querySelectorAll('tbody input[type="checkbox"]:not(:checked)').forEach((cb) => {
-    _selectedIds.delete(Number(cb.dataset.id));
-  });
+  document
+    .querySelectorAll('tbody input[type="checkbox"]:checked')
+    .forEach((cb) => {
+      _selectedIds.add(Number(cb.dataset.id));
+    });
+  document
+    .querySelectorAll('tbody input[type="checkbox"]:not(:checked)')
+    .forEach((cb) => {
+      _selectedIds.delete(Number(cb.dataset.id));
+    });
 }
 
+// Hàm khôi phục trạng thái checkbox sau khi render lại trang
 function restoreCheckboxState() {
   document.querySelectorAll('tbody input[type="checkbox"]').forEach((cb) => {
     cb.checked = _selectedIds.has(Number(cb.dataset.id));
@@ -17,7 +22,9 @@ function restoreCheckboxState() {
 
   // Cập nhật check-all
   const allCbs = document.querySelectorAll('tbody input[type="checkbox"]');
-  const checkedCbs = document.querySelectorAll('tbody input[type="checkbox"]:checked');
+  const checkedCbs = document.querySelectorAll(
+    'tbody input[type="checkbox"]:checked',
+  );
   document.getElementById("checked-all").checked =
     allCbs.length > 0 && allCbs.length === checkedCbs.length;
 
@@ -53,7 +60,7 @@ function searchCandidates(keyword) {
         (emp) =>
           emp.fullName?.toLowerCase().includes(trimmed) ||
           emp.phoneNumber?.toLowerCase().includes(trimmed) ||
-          emp.email?.toLowerCase().includes(trimmed)
+          emp.email?.toLowerCase().includes(trimmed),
       )
     : all;
 
@@ -136,7 +143,9 @@ function initCheckboxListener() {
 
     // Cập nhật check-all
     const allCbs = document.querySelectorAll('tbody input[type="checkbox"]');
-    const checkedCbs = document.querySelectorAll('tbody input[type="checkbox"]:checked');
+    const checkedCbs = document.querySelectorAll(
+      'tbody input[type="checkbox"]:checked',
+    );
     document.getElementById("checked-all").checked =
       allCbs.length > 0 && allCbs.length === checkedCbs.length;
   });
@@ -149,9 +158,11 @@ function initCandidatePage() {
   displayAllCandidates();
 
   // Tìm kiếm
-  document.getElementById("input-search").addEventListener("input", function () {
-    searchCandidates(this.value);
-  });
+  document
+    .getElementById("input-search")
+    .addEventListener("input", function () {
+      searchCandidates(this.value);
+    });
 
   // Đổi số bản ghi/trang
   document
@@ -215,7 +226,8 @@ function initCandidatePage() {
   document.getElementById("delete-selected").addEventListener("click", () => {
     const ids = getCheckedIds();
     if (ids.length === 0) return;
-    if (!confirm(`Bạn có chắc muốn xóa ${ids.length} ứng viên đã chọn?`)) return;
+    if (!confirm(`Bạn có chắc muốn xóa ${ids.length} ứng viên đã chọn?`))
+      return;
 
     deleteCandidatesByIds(ids);
     _selectedIds.clear();
