@@ -51,6 +51,7 @@ function displayAllCandidates() {
   renderPage();
 }
 
+// Tìm kiếm ứng viên theo tên, sđt, email
 function searchCandidates(keyword) {
   const trimmed = keyword.trim().toLowerCase();
   const all = getAllCandidates();
@@ -69,13 +70,13 @@ function searchCandidates(keyword) {
   renderPage();
 }
 
-// --- Modal helpers ---
-
+// mở modal thêm mới
 function openAddModal() {
   resetForm();
   document.getElementById("form__add").classList.add("display-block");
 }
 
+// mở modal sửa, điền dữ liệu vào form
 function openEditModal(employeeId) {
   const candidate = getCandidateById(employeeId);
   if (!candidate) return;
@@ -92,8 +93,7 @@ function closeModal() {
   resetForm();
 }
 
-// --- Lưu ứng viên (thêm mới hoặc cập nhật) ---
-
+//Lưu ứng viên
 function handleSaveCandidate() {
   const formData = getFormValues();
   if (!validateForm(formData)) return;
@@ -110,12 +110,12 @@ function handleSaveCandidate() {
   closeModal();
 }
 
-// --- Checkbox logic ---
-
+// Lấy danh sách employeeId đang tích chọn
 function getCheckedIds() {
   return Array.from(_selectedIds).map(String);
 }
 
+// Bỏ chọn tất cả ô đang tích
 function uncheckAll() {
   _selectedIds.clear();
   document
@@ -151,8 +151,7 @@ function initCheckboxListener() {
   });
 }
 
-// --- Init trang ---
-
+//Init trang
 function initCandidatePage() {
   saveDefaultDataToStorage();
   displayAllCandidates();

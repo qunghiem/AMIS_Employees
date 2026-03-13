@@ -1,6 +1,7 @@
 // Render danh sách ứng viên ra UI
 // Chỉ chứa logic hiển thị, không xử lý data/event
 
+// Hiển thị danh sách ứng viên
 function renderCandidates(candidates) {
   const tbody = document.querySelector(".candidate-table tbody");
   tbody.innerHTML = "";
@@ -54,7 +55,7 @@ function renderCandidates(candidates) {
   });
 }
 
- 
+// Hiển thị thông tin phân trang
 function renderPageInfo() {
   const { start, end, total } = getPageInfo();
  

@@ -3,6 +3,7 @@
 // toast thông báo
 const toaster = new ToasterUi();
 
+// lưu data mặc định vào storage nếu chưa có
 function saveDefaultDataToStorage() {
   // Chỉ lưu khi storage chưa có data
   if (localStorage.getItem(CONFIG.STORAGE_KEY)) return;
@@ -11,11 +12,13 @@ function saveDefaultDataToStorage() {
   localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(employees));
 }
 
+// get tất cả ứng viên từ storage
 function getAllCandidates() {
   const data = localStorage.getItem(CONFIG.STORAGE_KEY);
   return data ? JSON.parse(data) : [];
 }
 
+// lưu data vào storage với message tương ứng theo action
 function saveAllCandidates(data, action) {
   // Định nghĩa message theo action
   const messages = {
@@ -66,6 +69,8 @@ function saveAllCandidates(data, action) {
   }
 }
 
+// Thêm ứng viên mới
+// tự động tạo employeeId mới dựa trên employeeId lớn nhất hiện có + 1
 function addCandidate(newCandidate) {
   const candidates = getAllCandidates();
 
@@ -74,19 +79,20 @@ function addCandidate(newCandidate) {
     0,
   );
   newCandidate.employeeId = maxId + 1;
-
+  // thêm vào đầu mảng
   candidates.unshift(newCandidate);
   saveAllCandidates(candidates, 'add');
 }
 
+// Lấy thông tin ứng viên theo employeeId
 function getCandidateById(employeeId) {
   const candidates = getAllCandidates();
-  // Fix: typo "nulll" → null
   return (
     candidates.find((emp) => emp.employeeId === Number(employeeId)) || null
   );
 }
 
+// Cập nhật thông tin ứng viên đang sửa
 function updateCandidate(candidateEditing) {
   const candidates = getAllCandidates();
   const index = candidates.findIndex(
@@ -101,6 +107,7 @@ function updateCandidate(candidateEditing) {
   return true;
 }
 
+// Xóa ứng viên theo employeeId
 function deleteCandidateById(employeeId) {
   const candidates = getAllCandidates();
   const filtered = candidates.filter(
@@ -109,6 +116,7 @@ function deleteCandidateById(employeeId) {
   saveAllCandidates(filtered, 'delete');
 }
 
+// Xóa nhiều ứng viên theo employeeId
 function deleteCandidatesByIds(ids) {
   // Xóa nhiều ứng viên 1 lần, chỉ ghi localStorage 1 lần
   const numericIds = ids.map(Number);

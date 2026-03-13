@@ -2,7 +2,7 @@
 
 let _editingId = null;
  
-// --- Đọc giá trị từ form ---
+// Đọc giá trị từ form
 function getFormValues() {
   return {
     fullName:        document.getElementById("input-fullName").value.trim(),
@@ -26,7 +26,7 @@ function getFormValues() {
   };
 }
  
-// --- Validate ---
+// Validat
 function validateForm(candidate) {
   if (!candidate.fullName) {
     alert("Vui lòng nhập họ và tên!");
@@ -43,7 +43,7 @@ function validateForm(candidate) {
   return true;
 }
  
-// --- Reset form & state ---
+//Reset form và state
 function resetForm() {
   document
     .getElementById("form__add")
@@ -54,7 +54,7 @@ function resetForm() {
   document.querySelector(".form__header__title").textContent = "Thêm ứng viên";
 }
  
-// --- Fill form khi sửa ---
+//Fill form khi sửa
 function fillFormForEdit(candidate) {
   document.getElementById("input-fullName").value       = candidate.fullName || "";
   document.getElementById("input-phone").value          = candidate.phoneNumber || "";
@@ -76,7 +76,7 @@ function fillFormForEdit(candidate) {
   document.getElementById("input-collaborator").value   = candidate.collaborator || "";
 }
  
-// --- Getter / Setter cho editingId ---
+//Getter / Setter cho editingId
 function getEditingId() {
   return _editingId;
 }

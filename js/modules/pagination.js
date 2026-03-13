@@ -14,10 +14,12 @@ function getCurrentCandidates() {
   return _currentCandidates;
 }
  
+// reset về trang đầu tiên
 function resetPage() {
   _currentPage = 1;
 }
- 
+
+// set lại kích thước trang
 function setPageSize(size) {
   _pageSize = size;
 }
@@ -40,15 +42,18 @@ function goPrevPage() {
   if (isFirstPage()) return;
   _currentPage--;
 }
- 
+
+// kiểm tra có đang ở trang đầu tiên
 function isFirstPage() {
   return _currentPage <= 1;
 }
- 
+
+// kiểm tra có đang ở trang cuối cùng
 function isLastPage() {
   return _currentPage * _pageSize >= _currentCandidates.length;
 }
  
+// lấy thông tin phân trang để hiển thị
 function getPageInfo() {
   const total = _currentCandidates.length;
   const start = total === 0 ? 0 : (_currentPage - 1) * _pageSize + 1;
