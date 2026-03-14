@@ -177,6 +177,8 @@
   align-items: center;
   gap: 12px;
   padding: 20px;
+   position: relative; 
+  overflow: visible;
 }
 
 .selected_content .unselect {
@@ -472,3 +474,89 @@ tr:hover td.col-action {
   background-color: #dc2626;
   color: white;
 }
+
+
+/* ===== OVERFLOW MENU ===== */
+.overflow-menu {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.overflow-menu__visible {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.overflow-menu__more-btn {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.overflow-menu__trigger {
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #e0e6ec;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #1e2633;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.overflow-menu__trigger:hover {
+  color: #1d63e0;
+  border-color: #1d63e0;
+}
+
+.overflow-menu__trigger .chevron {
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+
+.overflow-menu__more-btn.open .overflow-menu__trigger .chevron {
+  transform: rotate(180deg);
+}
+
+.overflow-menu__dropdown {
+  display: none;
+  position: fixed;   /* đổi absolute → fixed để thoát khỏi mọi overflow:hidden */
+  background: #fff;
+  border: 1px solid #e0e6ec;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  z-index: 9999;
+  min-width: 190px;
+  padding: 4px 0;
+}
+
+.overflow-menu__more-btn.open .overflow-menu__dropdown {
+  display: block;
+}
+
+.overflow-menu__dropdown-item {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #1e2633;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.overflow-menu__dropdown-item:hover {
+  background: #f0f5ff;
+  color: #1d63e0;
+}
+/* ===== END OVERFLOW MENU ===== */

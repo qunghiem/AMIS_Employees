@@ -222,17 +222,24 @@ function initCandidatePage() {
   document.querySelector(".unselect").addEventListener("click", uncheckAll);
 
   // Xóa các ứng viên đã chọn
-  document.getElementById("delete-selected").addEventListener("click", () => {
+// Lắng nghe click từ overflow menu
+document.addEventListener("overflow-menu-click", (e) => {
+  const { id } = e.detail;
+
+  if (id === "delete-selected") {
     const ids = getCheckedIds();
     if (ids.length === 0) return;
-    if (!confirm(`Bạn có chắc muốn xóa ${ids.length} ứng viên đã chọn?`))
-      return;
-
+    if (!confirm(`Bạn có chắc muốn xóa ${ids.length} ứng viên đã chọn?`)) return;
     deleteCandidatesByIds(ids);
     _selectedIds.clear();
     showSearchBar();
     displayAllCandidates();
-  });
+    return;
+  }
+
+  // Các action khác (send-email, tag-manager, v.v.) xử lý thêm ở đây
+  console.log("Menu action:", id, "| Selected:", getCheckedIds());
+});
 
   // Check all / uncheck all cho trang hiện tại
   document.getElementById("checked-all").addEventListener("click", function () {
@@ -255,6 +262,8 @@ function initCandidatePage() {
       showSearchBar();
     }
   });
+
+  initOverflowMenu();
 
   // Lắng nghe thay đổi checkbox
   initCheckboxListener();

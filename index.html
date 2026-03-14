@@ -167,75 +167,17 @@
       <div class="content">
         <div class="selected_content display-none">
           <p class="selected-count"></p>
-          <button class="unselect ">Bỏ chọn</button>
-          <button class="send-email btn-selected">
-            <div class="btn-selected__icon send-email__icon">
+          <button class="unselect">Bỏ chọn</button>
 
+          <div class="overflow-menu" id="overflow-menu">
+            <div class="overflow-menu__visible" id="overflow-visible"></div>
+            <div class="overflow-menu__more-btn" id="overflow-more" style="display:none">
+              <button class="overflow-menu__trigger">
+                Thêm <span class="chevron">▼</span>
+              </button>
+              <div class="overflow-menu__dropdown" id="overflow-dropdown"></div>
             </div>
-            Gửi email
-          </button>
-
-          <button class="tag-manager btn-selected">
-            <div class="btn-selected__icon tag-manager__icon">
-
-            </div>
-            Quản lý thẻ
-          </button>
-          <button class="create-job btn-selected">
-            <div class="btn-selected__icon create-job__icon">
-
-            </div>
-            Tạo công việc
-          </button>
-
-          <button>
-            <div class="">
-
-            </div>
-            Thêm vào chiến dịch
-          </button>
-
-           <button>
-            <div class="">
-
-            </div>
-            Chuyển vào kho tiềm năng
-          </button>
-
-          <button>
-            <div class="">
-
-            </div>
-            Chuyển đến tin khác
-          </button>
-
-          <button>
-            <div class="">
-
-            </div>
-            Cập nhật hàng loạt
-          </button>
-
-          <button>
-            <div class="">
-
-            </div>
-           Tải xuống CV
-          </button>
-
-          <button>
-            <div class="">
-
-            </div>
-            Xuất khẩu
-          </button>
-
-          <div id="delete-selected" class="btn-selected">Xóa ứng viên đã chọn</div>
-
-
-
-
-
+          </div>
         </div>
         <div class="content__nav">
 
@@ -501,6 +443,8 @@
   <script src="./js/modules/pagination.js"></script>
   <script src="./js/modules/candidateRenderer.js"></script>
   <script src="./js/modules/candidatesForm.js"></script>
+  <script src="./js/modules/overflowMenu.js"></script>
+
 
   <!-- import page  -->
   <script src="./js/page/employees.js"></script>
