@@ -3,7 +3,7 @@
 /* CSS cho Layout Content  */
 .layout__content {
   padding: 25px;
-  padding-top: 80px;
+  padding-top: 66px;
   gap: 20px;
   display: flex;
   flex-direction: column;
@@ -15,6 +15,7 @@
 .layout__content .title__header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .title__header .title__right {
@@ -23,7 +24,7 @@
 }
 
 .title__right .item-button {
-  padding: 8px 10px;
+  padding: 5px 12px;
   border-radius: 5px;
   font-size: 15px;
   border: none;
@@ -45,6 +46,8 @@
 
 .title__right .delete {
   border: 1px solid #fff;
+  font-size: 14px;
+  background-color: #fff;
 }
 
 .title__right .delete:hover {
@@ -66,12 +69,12 @@
   min-width: 20px;
 }
 .title__right .add {
-  background-color: #4097ff;
+  background-color: #2680eb ;
   color: #fff;
 }
 
 .title__right .add:hover {
-  background-color: #6ca8f3;
+  background-color: #4097ff ;
 }
 .layout__content .content {
   flex: 1;
@@ -94,20 +97,49 @@
   justify-content: space-between;
   align-items: center;
 }
-.content__search {
-  width: 50%;
+
+#input-search {
   position: relative;
 }
 
-.content__search::before {
+.content__search {
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.icon-search-ami {
+  z-index: 1;
+  width: 24px;
+  height: 24px !important;
+  background-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ai-feature/ai-search-candidate.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  animation: spinFFF 20s infinite;
+  left: 10px;
+}
+
+.icon-search-ami::before {
   content: "";
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ai-feature/ai-search-candidate-start.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  animation: inspinFFF 20s infinite;
 }
 
 .content__search input {
-  width: 100%;
+  width: 80%;
   max-width: 300px;
   padding: 10px;
+  padding-left: 55px;
   border: 1px solid #eae4e4;
   border-radius: 5px;
 }
@@ -242,21 +274,29 @@
 
 .candidate-table th,
 .candidate-table td {
-  border-bottom: 1px solid #e0e0e0;
-  padding: 15px 15px;
+  border-bottom: 1px solid #ddd;
   text-align: center;
   overflow: hidden;
+  text-align: left;
+
+}
+
+.candidate-table td {
+  padding: 7.5px;
 }
 
 .candidate-table th {
   font-size: 16px;
   font-weight: 600;
   border-right: 1px solid #f5f5f5;
-
   position: sticky;
   top: 0;
   z-index: 10;
   background-color: #fff;
+  background-color: #F9FAFB!important;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  padding: 15px 15px;
 }
 
 tr:hover {
@@ -327,6 +367,7 @@ thead tr th:last-child {
   z-index: 9;
   left: 0;
   background: #fff;
+  text-align: center;
 }
 
 .col-action--item {
@@ -335,12 +376,13 @@ thead tr th:last-child {
 }
 
 .col-action {
-  display: flex;
+  display: none;
 }
 
 tr:hover td.col-action {
   position: sticky;
   right: 0;
+  display: flex;
 }
 
 .prev {
