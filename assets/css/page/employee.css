@@ -278,7 +278,6 @@
   text-align: center;
   overflow: hidden;
   text-align: left;
-
 }
 
 .candidate-table td {
@@ -312,6 +311,34 @@ thead tr th:last-child {
   border-right: 0;
 }
 
+/* css width cho từng cột 
+*/
+.td_fullName {
+  width: 264px;
+}
+
+.td_phone {
+  width: 127px;
+}
+
+.td_candidate-source{
+  width: 151px;
+}
+
+.td_email {
+  width: 236px;
+}
+
+.td_recruitment-campaign {
+  width: 188px;
+}
+
+.td_position {
+  width: 216px;
+}
+.td_job-posting {
+  width: 244px;
+}
 .avatar-cell {
   display: flex;
   align-items: center;
