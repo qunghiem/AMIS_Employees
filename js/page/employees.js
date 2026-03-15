@@ -156,6 +156,7 @@ function initCandidatePage() {
   saveDefaultDataToStorage();
   displayAllCandidates();
   initAvatarUpload();
+  initCVUpload();
 
   // Tìm kiếm
   document

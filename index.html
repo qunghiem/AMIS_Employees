@@ -266,14 +266,28 @@
       </div>
 
       <div class="form__content">
-        <div class="form__content__file">
-          <div class="form__content__text">
+        <div class="form__content__file" id="cv-upload-zone">
+          <div class="upload-prompt">
             <div class="form__content__file__title">Kéo thả hoặc bấm vào đây để tải CV lên</div>
             <div class="form__content__file__note">
               Chấp nhận file .doc, .docx, .pdf, .jpg, .jpeg, .png
               <span>(Dung lượng &lt; 15 Mb)</span>
             </div>
           </div>
+          <div class="cv-uploaded-info">
+            <div class="cv-uploaded-title">
+               <div class="cv-file-icon">
+              <i id="cv-uploaded-icon" class="fa-solid fa-file-pdf" style="font-size:16px;"></i>
+            </div>
+            <div class="cv-info-text">
+              <div class="cv-info-name" id="cv-uploaded-name"></div>
+              <div class="cv-info-size" id="cv-uploaded-size"></div>
+            </div>
+            </div>
+      <button class="cv-reupload-btn" id="cv-reupload-btn">Tải CV khác</button>
+
+          </div>
+          <input type="file" id="cv-upload-input" accept=".doc,.docx,.pdf,.jpg,.jpeg,.png">
         </div>
 
         <div class="form__content__infor">
