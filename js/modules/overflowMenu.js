@@ -1,16 +1,56 @@
 // Overflow menu: tự động ẩn items không vừa vào "Thêm ▼"
 
 const MENU_ITEMS = [
-  { id: "send-email",       label: "Gửi email" },
-  { id: "tag-manager",      label: "Quản lý thẻ" },
-  { id: "create-job",       label: "Tạo công việc" },
-  { id: "add-campaign",     label: "Thêm vào chiến dịch" },
-  { id: "to-talent-pool",   label: "Chuyển vào kho tiềm năng" },
-  { id: "move-news",        label: "Chuyển đến tin khác" },
-  { id: "bulk-update",      label: "Cập nhật hàng loạt" },
-  { id: "download-cv",      label: "Tải xuống CV" },
-  { id: "export",           label: "Xuất khẩu" },
-  { id: "delete-selected",  label: "Xóa ứng viên đã chọn" },
+  { 
+    id: "send-email",       
+    label: "Gửi email",
+    class: "btn-action-overflow"
+  },
+  { 
+    id: "tag-manager",      
+    label: "Quản lý thẻ",
+    class: "btn-action-overflow"
+  },
+  { 
+    id: "create-job",       
+    label: "Tạo công việc" ,
+    class: "btn-action-overflow"
+  },
+  { 
+    id: "add-campaign",     
+    label: "Thêm vào chiến dịch",
+    class: "btn-action-overflow"
+  },
+  { 
+    id: "to-talent-pool",   
+    label: "Chuyển vào kho tiềm năng",
+    class: "btn-action-overflow"
+  },
+  { 
+    id: "move-news",        
+    label: "Chuyển đến tin khác",
+    class: "btn-action-overflow"
+  },
+  { 
+    id: "bulk-update",      
+    label: "Cập nhật hàng loạt",
+    class: "btn-action-overflow"
+  },
+  { 
+    id: "download-cv",      
+    label: "Tải xuống CV",
+    class: "btn-action-overflow"
+  },
+  { 
+    id: "export",           
+    label: "Xuất khẩu",
+    class: "btn-action-overflow"
+  },
+  { 
+    id: "delete-selected",  
+    label: "Xóa ứng viên đã chọn",
+    class: "btn-action-overflow"
+  },
 ];
 
 // Đo width thực tế của 1 button (render ẩn ngoài màn hình)
@@ -39,12 +79,14 @@ function buildButton(item, inDropdown = false) {
     const div = document.createElement("div");
     div.className = "overflow-menu__dropdown-item";
     div.dataset.id = item.id;
+    // btn.id = item.id;
     div.textContent = item.label;
     return div;
   }
   const btn = document.createElement("button");
   btn.className = "btn-selected";
   btn.dataset.id = item.id;
+  btn.id = item.id;
   btn.textContent = item.label;
   return btn;
 }

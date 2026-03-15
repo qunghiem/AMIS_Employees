@@ -1,5 +1,9 @@
 /* Chỉ dùng cho 1 page cụ thể - Page Ứng viên  */
 
+/* CSS cho Over Flow Menu Action khi tich checked  */
+@import "../components/overFlowMenu.css";
+
+
 /* CSS cho Layout Content  */
 .layout__content {
   padding: 25px;
@@ -172,87 +176,7 @@
   background-color: #7a8188 !important;
 }
 
-.selected_content {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 20px;
-   position: relative; 
-  overflow: visible;
-}
 
-.selected_content .unselect {
-  border: none;
-  color: #1d63e0;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-.selected_content .unselect:hover {
-  color: #0717f3;
-}
-
-.btn-selected {
-  height: 36px !important;
-  font-size: 14px !important;
-  padding: 7px 16px !important;
-  border: 1px solid #e0e6ec;
-  color: #1e2633;
-  background: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 15px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.btn-selected:hover {
-  color: #1d63e0;
-  border: 1px solid #1d63e0;
-}
-
-.btn-selected:hover .send-email__icon {
-  background-color: #1d63e0 !important;
-}
-
-.btn-selected__icon {
-  background-color: #7a8188 !important;
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-}
-
-.send-email__icon {
-  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-  -webkit-mask-position: -260px -656px;
-  -webkit-mask-repeat: no-repeat;
-}
-
-.tag-manager__icon {
-  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-  -webkit-mask-position: -300px -656px;
-  -webkit-mask-repeat: no-repeat;
-}
-
-.create-job__icon {
-  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-  -webkit-mask-position: -340px -656px;
-  -webkit-mask-repeat: no-repeat;
-}
-
-.bar-container {
-  flex-direction: column;
-}
-
-.btn-bar__icon {
-  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-  -webkit-mask-position: -96px -80px;
-  -webkit-mask-repeat: no-repeat;
-  width: 16px;
-  min-width: 16px;
-  height: 16px;
-}
 
 .content_body {
   max-width: 100%;
@@ -476,87 +400,3 @@ tr:hover td.col-action {
 }
 
 
-/* ===== OVERFLOW MENU ===== */
-.overflow-menu {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex: 1;
-  min-width: 0;
-  overflow: hidden;
-}
-
-.overflow-menu__visible {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  min-width: 0;
-  flex-shrink: 0;
-}
-
-.overflow-menu__more-btn {
-  position: relative;
-  flex-shrink: 0;
-}
-
-.overflow-menu__trigger {
-  height: 36px;
-  padding: 0 10px;
-  border: 1px solid #e0e6ec;
-  background: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  color: #1e2633;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  white-space: nowrap;
-}
-
-.overflow-menu__trigger:hover {
-  color: #1d63e0;
-  border-color: #1d63e0;
-}
-
-.overflow-menu__trigger .chevron {
-  font-size: 10px;
-  transition: transform 0.2s;
-}
-
-.overflow-menu__more-btn.open .overflow-menu__trigger .chevron {
-  transform: rotate(180deg);
-}
-
-.overflow-menu__dropdown {
-  display: none;
-  position: fixed;   /* đổi absolute → fixed để thoát khỏi mọi overflow:hidden */
-  background: #fff;
-  border: 1px solid #e0e6ec;
-  border-radius: 6px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-  z-index: 9999;
-  min-width: 190px;
-  padding: 4px 0;
-}
-
-.overflow-menu__more-btn.open .overflow-menu__dropdown {
-  display: block;
-}
-
-.overflow-menu__dropdown-item {
-  padding: 8px 14px;
-  font-size: 14px;
-  color: #1e2633;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.overflow-menu__dropdown-item:hover {
-  background: #f0f5ff;
-  color: #1d63e0;
-}
-/* ===== END OVERFLOW MENU ===== */
