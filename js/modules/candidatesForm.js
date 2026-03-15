@@ -272,6 +272,7 @@ function closeCVPreviewPanel() {
 }
 
 // kết thúc xử lí upload CV
+
 let _editingId = null;
 
 // Đọc giá trị từ form
@@ -306,22 +307,72 @@ function getFormValues() {
   };
 }
 
-// Validat
+// Validate form
 function validateForm(candidate) {
-  if (!candidate.fullName) {
-    alert("Vui lòng nhập họ và tên!");
-    return false;
+  let isValid = true;
+
+  const fields = [
+    { id: "input-fullName",  value: candidate.fullName,    message: "Vui lòng nhập họ và tên" },
+    { id: "input-phone",     value: candidate.phoneNumber, message: "Vui lòng nhập số điện thoại" },
+    { id: "input-email",     value: candidate.email,       message: "Vui lòng nhập email" },
+    { id: "input-country",   value: candidate.country,     message: "Vui lòng nhập quốc gia" },
+    { id: "input-province",  value: candidate.province,    message: "Vui lòng chọn tỉnh / thành phố" },
+    { id: "input-dob", value: candidate.dob, message: "Vui lòng nhập ngày sinh" },
+  ];
+
+  // Xóa lỗi cũ
+  fields.forEach(({ id }) => {
+    const el = document.getElementById(id);
+    el.classList.remove("is-invalid");
+    el.parentElement.querySelector(".field-error")?.remove();
+  });
+
+  // Kiểm tra từng field
+  fields.forEach(({ id, value, message }) => {
+    // kiểm tra giá trị nếu chưa nhập
+    if (!value) {
+      showError(id, message);
+      isValid = false;
+      return;
+    }
+
+    // Validate email
+    if (id === "input-email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      showError(id, "Email không hợp lệ");
+      isValid = false;
+    }
+
+    // Validate SĐT (số VN 10 chữ số bắt đầu 0)
+    if (id === "input-phone" && !/^0[0-9]{9}$/.test(value)) {
+      showError(id, "Số điện thoại không hợp lệ");
+      isValid = false;
+    }
+
+    // kiểm tra ngày sinh
+    if (id === "input-dob" && new Date(value) > new Date()) {
+      showError(id, "Ngày sinh không được lớn hơn ngày hiện tại");
+      isValid = false;
+    }
+
+  });
+
+  // tự động cuộn tới lỗi gặp đầu tiên nếu gặp lỗi
+  if (!isValid) {
+    document.querySelector("#form__add .is-invalid")?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
-  if (!candidate.phoneNumber) {
-    alert("Vui lòng nhập số điện thoại!");
-    return false;
-  }
-  if (!candidate.email) {
-    alert("Vui lòng nhập email!");
-    return false;
-  }
-  return true;
+
+  return isValid;
 }
+
+function showError(fieldId, message) {
+  const el = document.getElementById(fieldId);
+  el.classList.add("is-invalid");
+  const err = document.createElement("div");
+  err.className = "field-error";
+  err.textContent = message;
+  el.parentElement.appendChild(err);
+}
+// Kết thúc Validate form
 
 //Reset form và state
 function resetForm() {
