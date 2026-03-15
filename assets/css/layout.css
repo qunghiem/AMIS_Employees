@@ -163,7 +163,7 @@
 
 .layout__sidebar {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)),
+    linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1)),
     url(https://amisplatform.misacdn.net/apps/recruit2/event-sidebar.b836f9e63b28d1c0.png);
   background-position: bottom;
   background-repeat: no-repeat;

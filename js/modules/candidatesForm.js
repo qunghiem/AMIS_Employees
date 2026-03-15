@@ -69,6 +69,7 @@ function clearAvatar() {
 function getCurrentAvatar() {
   return _currentAvatar;
 }
+
 function setCurrentAvatar(src) {
   _currentAvatar = src || null;
   setAvatarPreview(src || null);
@@ -190,6 +191,7 @@ function clearCV() {
 function getCurrentCV() {
   return _currentCV;
 }
+
 function setCurrentCV(cv) {
   _currentCV = cv || null;
   updateCVZoneUI(_currentCV);
