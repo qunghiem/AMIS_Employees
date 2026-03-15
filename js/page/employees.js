@@ -155,6 +155,7 @@ function initCheckboxListener() {
 function initCandidatePage() {
   saveDefaultDataToStorage();
   displayAllCandidates();
+  initAvatarUpload();
 
   // Tìm kiếm
   document

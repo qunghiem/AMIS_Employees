@@ -18,6 +18,7 @@ function renderCandidates(candidates) {
   
 
   candidates.forEach((employee) => {
+    const avatarSrc = employee.avatar || CONFIG.DEFAULT_AVATAR;
     const row = document.createElement("tr");
     row.innerHTML = `
       <td class="checkbox">
@@ -25,7 +26,7 @@ function renderCandidates(candidates) {
       </td>
       <td>
         <div class="avatar-cell">
-          <img class="avatar" src="${CONFIG.DEFAULT_AVATAR}" alt="${employee.fullName || "--"}">
+          <img class="avatar" src="${avatarSrc}" ...>
           ${employee.fullName || "--"}
         </div>
       </td>

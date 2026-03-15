@@ -278,8 +278,20 @@
 
         <div class="form__content__infor">
           <div class="form__content_avatar">
-            <div class="form__content_img">Ảnh
+            <div class="avatar-upload-wrapper" id="avatar-upload-wrapper" title="Bấm để chọn ảnh đại diện">
+              <div class="form__content_img" id="avatar-preview-box">
+                <span style="font-size:12px;color:#9ca3af;">Ảnh</span>
+              </div>
+              <div class="avatar-upload-overlay">
+                <i class="fa-solid fa-camera overlay-icon"></i>
+                <span class="overlay-text">Đổi ảnh</span>
+              </div>
+              <button class="avatar-remove-btn" id="avatar-remove-btn" type="button" title="Xóa ảnh">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
             </div>
+            <input type="file" id="avatar-upload-input" class="avatar-upload-input"
+              accept="image/jpeg,image/png,image/gif,image/webp">
           </div>
           <div class="form__infor__user">
             <div class="ms__row">
@@ -393,13 +405,15 @@
             <div class="ms__row ms__flex">
               <div>
                 <label class="ms__label">Nhân sự khai thác</label>
-                <div class="ms__input"><select id="input-recruiter">
+                <div class="ms__input">
+                  <select id="input-recruiter">
                     <option value="" selected disabled>Chọn nhân sự khai thác</option>
                     <option value="1">Đinh Nga QTHT</option>
                     <option value="2">Le Linh HR</option>
                     <option value="3">Tung Duong QTHT</option>
                     <option value="4">Khanh Huyen HR</option>
-                  </select></div>
+                  </select>
+                </div>
               </div>
               <div>
                 <label class="ms__label">Cộng tác viên</label>

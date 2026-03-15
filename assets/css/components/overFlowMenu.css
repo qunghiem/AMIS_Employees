@@ -38,18 +38,18 @@
 }
 
 .overflow-menu__trigger::before {
-    content: "";
-    position: absolute;
-    background-color: #7a8188;
-    width: 16px;
-    height: 16px;
-    min-width: 16px;
-        -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -96px -80px;
-    -webkit-mask-repeat: no-repeat;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  content: "";
+  position: absolute;
+  background-color: #7a8188;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -96px -80px;
+  -webkit-mask-repeat: no-repeat;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .overflow-menu__trigger:hover {
@@ -93,7 +93,6 @@
   white-space: nowrap;
   position: relative;
   padding: 14px 22px 14px 44px !important;
-
 }
 
 .overflow-menu__dropdown-item:hover {
@@ -103,7 +102,6 @@
 
 .overflow-menu__dropdown-item:hover::before {
   background: #1d63e0 !important;
-
 }
 
 .btn-selected__icon {
@@ -156,7 +154,6 @@
 
 .btn-selected:hover::before {
   background: #1d63e0 !important;
-
 }
 
 #send-email::before {
@@ -197,8 +194,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
-      -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -340px -656px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -340px -656px;
 }
 
 #add-campaign::before {
@@ -211,8 +208,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
--webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -73px -633px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -73px -633px;
 }
 
 #to-talent-pool::before {
@@ -225,8 +222,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
--webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -20px -676px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -20px -676px;
 }
 
 #move-news::before {
@@ -239,8 +236,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
-    -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -40px -676px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -40px -676px;
 }
 
 #bulk-update::before {
@@ -253,8 +250,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
-    -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -260px -676px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -260px -676px;
 }
 
 #download-cv::before {
@@ -267,8 +264,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
--webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -236px -748px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -236px -748px;
 }
 
 #export::before {
@@ -281,8 +278,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
--webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -60px -656px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -60px -656px;
 }
 
 #delete-selected::before {
@@ -295,10 +292,10 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
-    -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -220px -656px;
-        background: #f00 !important;
-    background-color: #f00 !important;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -220px -656px;
+  background: #f00 !important;
+  background-color: #f00 !important;
 }
 
 /* Css cho dropdown */
@@ -340,8 +337,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
-      -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -340px -656px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -340px -656px;
 }
 
 [data-id="add-campaign"]::before {
@@ -354,8 +351,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
--webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -73px -633px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -73px -633px;
 }
 
 [data-id="to-talent-pool"]::before {
@@ -368,8 +365,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
--webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -20px -676px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -20px -676px;
 }
 
 [data-id="move-news"]::before {
@@ -382,8 +379,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
-    -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -40px -676px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -40px -676px;
 }
 
 [data-id="bulk-update"]::before {
@@ -396,8 +393,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
-    -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -260px -676px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -260px -676px;
 }
 
 [data-id="download-cv"]::before {
@@ -410,8 +407,8 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
--webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -236px -748px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -236px -748px;
 }
 
 [data-id="export"]::before {
@@ -424,9 +421,10 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
--webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -60px -656px;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -60px -656px;
 }
+
 [data-id="delete-selected"]::before {
   content: "";
   position: absolute;
@@ -437,13 +435,13 @@
   background-color: #7a8188;
   -webkit-mask-repeat: no-repeat;
 
-    -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
-    -webkit-mask-position: -220px -656px;
-        background: #f00 !important;
-    background-color: #f00 !important;
+  -webkit-mask-image: url(https://amisplatform.misacdn.net/apps/recruit2/assets/images/ICON.svg);
+  -webkit-mask-position: -220px -656px;
+  background: #f00 !important;
+  background-color: #f00 !important;
 }
 /* ===== END OVERFLOW MENU ===== */
 
 .selected-count {
-    font-size: 14px;
+  font-size: 14px;
 }

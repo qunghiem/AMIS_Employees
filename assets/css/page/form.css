@@ -80,6 +80,18 @@
     width: 80px;
     display: flex;
     justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatar-upload-wrapper {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    cursor: pointer;
+}
+
+.avatar-upload-wrapper:hover .avatar-upload-overlay {
+    opacity: 1;
 }
 
 .form__content_img {
@@ -91,7 +103,75 @@
     align-items: center;
     justify-content: center;
     color: #6b7280;
-    font-size: 14px;
+    font-size: 12px;
+    overflow: hidden;
+    background-color: #f9fafb;
+    transition: border-color 0.2s;
+}
+
+.avatar-upload-wrapper:hover .form__content_img {
+    border-color: #2970f6;
+}
+
+.form__content_img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-upload-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    gap: 2px;
+}
+
+.avatar-upload-overlay .overlay-icon {
+    font-size: 16px;
+    color: #fff;
+}
+
+.avatar-upload-overlay .overlay-text {
+    font-size: 9px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.avatar-upload-input {
+    display: none;
+}
+
+.avatar-remove-btn {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 9px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-remove-btn:hover {
+    background-color: #dc2626;
+}
+
+.avatar-remove-btn.visible {
+    display: flex;
 }
 
 .form__infor__user {
